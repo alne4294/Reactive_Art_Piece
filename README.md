@@ -1,4 +1,4 @@
-Reactive_Art_piece
+Reactive_Art_Piece
 ==================
 
 HCC Big Data Final Project.
