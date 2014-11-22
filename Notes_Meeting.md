@@ -1,3 +1,6 @@
+------------------------------
+### Initial Mtg
+
 Different ideas:
 
 Change image based on weather
@@ -44,6 +47,13 @@ Everyone is responsible for their own image
 * weather/brightness outside
 * stretch: getting mood from Boulder Tweets, sentiment analysis library
 
+------------------------------
+### Mtg 3, Nov 22
 
+Tasks: 
+* Alexia - Weather API and Twitter
+* Josh - continue on svg/wozniak image
+* Justin - continued AWS
+* Chris - working with other groups
 
 
