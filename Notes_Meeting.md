@@ -54,6 +54,6 @@ Tasks:
 * Alexia - Weather API and Twitter
 * Josh - continue on svg/wozniak image
 * Justin - continued AWS
-* Chris - working with other groups
+* Chris - working with other groups, looking into infrared/ultraviolet response to sound
 
 
