@@ -55,5 +55,6 @@ Tasks:
 * Josh - continue on svg/wozniak image
 * Justin - continued AWS
 * Chris - working with other groups, looking into infrared/ultraviolet response to sound
+* Daniel - photoshop, add third layer to vector graphics
 
 
