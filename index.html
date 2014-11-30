@@ -793,7 +793,7 @@
 			    document.getElementById('G0').style.fill = "yellow";
 
 			    document.getElementById('woz1').style.background = color(input);
-			    document.getElementById('G1').style.fill = "DeepSkyBlue";			    
+			    document.getElementById('G1').style.fill = "DeepSkyBlue";			    			    			    
 			}
 		</script>
 
@@ -824,6 +824,25 @@
 				  }
 			  });
 			});
+		</script>
+
+		<!-- MongoDB call for the sound data; needs work-->
+
+		<script>
+			var mongo = require('mongoskin');
+			var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
+			
+			var data = db.collection('noise').find({}, {}).limit(1);
+
+			var dataset = <%- JSON.stringify(data) %>; 
+
+			var color = d3.scale.linear()
+			    	  .domain([0, 50, 100])
+			    	  .range(["red", "white", "green"]);
+
+					  document.getElementById('woz3').style.background = color(dataset['noise.level']); 
+					  document.getElementById('G3').style.fill = "red";
+
 		</script>
 
 	</body>
