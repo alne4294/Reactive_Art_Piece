@@ -826,22 +826,29 @@
 			});
 		</script>
 
-		<!-- MongoDB call for the sound data; needs work-->
+		<!-- MongoDB call for the sound data.
+			I can get the data we need, but am having trouble
+		    parsing out the noise level (noise.level) so we can
+		    use it in the visualization-->
 
 		<script>
 			var mongo = require('mongoskin');
 			var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
-			
-			var data = db.collection('noise').find({}, {}).limit(1);
-
-			var dataset = <%- JSON.stringify(data) %>; 
+			var query;
+			db.bind('noise');
+			db.noise.find({},{ "noise.level": true}).limit(1).toArray(function(err, items) {
+			console.log(items); //for test purposes. Items is the data we need. All we need to do is be able to parse noise.level out of it. 
+			db.close();
+			});
 
 			var color = d3.scale.linear()
 			    	  .domain([0, 50, 100])
 			    	  .range(["red", "white", "green"]);
 
-					  document.getElementById('woz3').style.background = color(dataset['noise.level']); 
-					  document.getElementById('G3').style.fill = "red";
+		  	document.getElementById('woz3').style.background = color(query.noise.level); //where we would want to insert noise.level
+		  	document.getElementById('G3').style.fill = "red";
+
+		}
 
 		</script>
 
