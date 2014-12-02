@@ -834,7 +834,6 @@
 		*/
 			var mongo = require('mongoskin');
 			var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
-			var query;
 			db.bind('noise');
 			db.noise.findOne({},{ "noise.level": true}, function(err, result) {
 				JSON.stringify(result);
