@@ -826,29 +826,31 @@
 			});
 		</script>
 
-		<!-- MongoDB call for the sound data.
-			I can get the data we need, but am having trouble
-		    parsing out the noise level (noise.level) so we can
-		    use it in the visualization-->
+		<!-- MongoDB call for the sound data.-->
+
 
 		<script>
+		/* Almost done. I can parse the noise level out of the data. There is some syntax error that is causing the vizualization not to change the color for the fourth drawing.  
+		*/
 			var mongo = require('mongoskin');
 			var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
 			var query;
 			db.bind('noise');
-			db.noise.find({},{ "noise.level": true}).limit(1).toArray(function(err, items) {
-			console.log(items); //for test purposes. Items is the data we need. All we need to do is be able to parse noise.level out of it. 
-			db.close();
-			});
+			db.noise.findOne({},{ "noise.level": true}, function(err, result) {
+				JSON.stringify(result);
+				var num = result['noise']['level'];//noise level
 
-			var color = d3.scale.linear()
+				var color = d3.scale.linear()
 			    	  .domain([0, 50, 100])
 			    	  .range(["red", "white", "green"]);
 
-		  	document.getElementById('woz3').style.background = color(query.noise.level); //where we would want to insert noise.level
-		  	document.getElementById('G3').style.fill = "red";
+		  	document.getElementById('woz3').style.background = color(num); //insert noise level into the vizualization 
 
-		}
+		  	document.getElementById('G3').style.fill = "red";
+	
+				db.close();
+			});
+
 
 		</script>
 
