@@ -1,0 +1,503 @@
+
+{
+  "response": {
+  "version":"0.1",
+  "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+  "features": {
+  "geolookup": 1
+  ,
+  "conditions": 1
+  }
+	}
+		,	"location": {
+		"type":"CITY",
+		"country":"US",
+		"country_iso3166":"US",
+		"country_name":"USA",
+		"state":"CO",
+		"city":"Boulder",
+		"tz_short":"MST",
+		"tz_long":"America/Denver",
+		"lat":"40.04679489",
+		"lon":"-105.21250153",
+		"zip":"80301",
+		"magic":"1",
+		"wmo":"99999",
+		"l":"/q/zmw:80301.1.99999",
+		"requesturl":"US/CO/Boulder.html",
+		"wuiurl":"http://www.wunderground.com/US/CO/Boulder.html",
+		"nearby_weather_stations": {
+		"airport": {
+		"station": [
+		{ "city":"Boulder Muni, Boulder, CO", "state":"CO", "country":"US", "icao":"KBDU", "lat":"40.03778839", "lon":"-105.22734833" }
+		,{ "city":"Lemoore (Abandoned) Willett A", "state":"CO", "country":"US", "icao":"KLMO", "lat":"40.16115189", "lon":"-105.16042328" }
+		,{ "city":"Erie", "state":"CO", "country":"US", "icao":"KEIK", "lat":"40.01168823", "lon":"-105.05033112" }
+		,{ "city":"Broomfield", "state":"CO", "country":"US", "icao":"KBJC", "lat":"39.90084839", "lon":"-105.10417175" }
+		]
+		}
+		,
+		"pws": {
+		"station": [
+		{
+		"neighborhood":"63rd St & Jay Rd",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD39",
+		"lat":40.055550,
+		"lon":-105.208595,
+		"distance_km":1,
+		"distance_mi":0
+		},
+		{
+		"neighborhood":"Red Fox Hills",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD7",
+		"lat":40.060284,
+		"lon":-105.193169,
+		"distance_km":2,
+		"distance_mi":1
+		},
+		{
+		"neighborhood":"Boulder Fire Training Ctr.",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD64",
+		"lat":40.071373,
+		"lon":-105.218704,
+		"distance_km":2,
+		"distance_mi":1
+		},
+		{
+		"neighborhood":"Four-Mile Creek",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD23",
+		"lat":40.046234,
+		"lon":-105.245483,
+		"distance_km":2,
+		"distance_mi":1
+		},
+		{
+		"neighborhood":"Kings Ridge",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD109",
+		"lat":40.031361,
+		"lon":-105.240265,
+		"distance_km":2,
+		"distance_mi":1
+		},
+		{
+		"neighborhood":"Fountain Greens",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD82",
+		"lat":40.069023,
+		"lon":-105.182648,
+		"distance_km":3,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Kalmia Court Condos",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD104",
+		"lat":40.039040,
+		"lon":-105.254585,
+		"distance_km":3,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Winchester Circle",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD123",
+		"lat":40.076744,
+		"lon":-105.191948,
+		"distance_km":3,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Valmont Road",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD140",
+		"lat":40.039635,
+		"lon":-105.167381,
+		"distance_km":3,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Heatherwood",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD53",
+		"lat":40.059052,
+		"lon":-105.166451,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Arapahoe Ridge",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD27",
+		"lat":40.011082,
+		"lon":-105.234138,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Cherryvale",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD79",
+		"lat":40.007374,
+		"lon":-105.209671,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Whittier",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD137",
+		"lat":40.023132,
+		"lon":-105.258789,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Halcyon East",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD51",
+		"lat":40.004066,
+		"lon":-105.207451,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Boulder Rifle Club",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD67",
+		"lat":40.066437,
+		"lon":-105.264046,
+		"distance_km":4,
+		"distance_mi":2
+		},
+		{
+		"neighborhood":"Crescent Station",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD94",
+		"lat":40.001316,
+		"lon":-105.230347,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Melody Heights",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD100",
+		"lat":40.040394,
+		"lon":-105.276428,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Old North Boulder",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD54",
+		"lat":40.029881,
+		"lon":-105.274452,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Keewayden Meadows",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD125",
+		"lat":39.997749,
+		"lon":-105.228188,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"seneca",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD128",
+		"lat":39.996033,
+		"lon":-105.224609,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Central Boulder",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD134",
+		"lat":40.029930,
+		"lon":-105.279037,
+		"distance_km":5,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Quince Ave.",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD46",
+		"lat":40.047485,
+		"lon":-105.283699,
+		"distance_km":6,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Estate Circle",
+		"city":"Longmont",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOLONGM91",
+		"lat":40.095558,
+		"lon":-105.177048,
+		"distance_km":6,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"The Ridge @ Lake Valley",
+		"city":"Niwot",
+		"state":"CO",
+		"country":"US",
+		"id":"KCONIWOT1",
+		"lat":40.087467,
+		"lon":-105.263702,
+		"distance_km":6,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Frasier Meadows",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD107",
+		"lat":39.992821,
+		"lon":-105.234367,
+		"distance_km":6,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"East Boulder",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD135",
+		"lat":39.995808,
+		"lon":-105.244942,
+		"distance_km":6,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Niwot 3W",
+		"city":"(BES Weather)",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOLONGM47",
+		"lat":40.105534,
+		"lon":-105.201302,
+		"distance_km":6,
+		"distance_mi":3
+		},
+		{
+		"neighborhood":"Hillside Estates",
+		"city":"Niwot",
+		"state":"CO",
+		"country":"US",
+		"id":"KCONIWOT2",
+		"lat":40.094154,
+		"lon":-105.162605,
+		"distance_km":6,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Downtown Boulder",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD95",
+		"lat":40.018066,
+		"lon":-105.282623,
+		"distance_km":6,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Martin Acres, South Boulder",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD10",
+		"lat":39.991631,
+		"lon":-105.251869,
+		"distance_km":6,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"South Boulder",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD93",
+		"lat":39.989338,
+		"lon":-105.251396,
+		"distance_km":7,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Majestic Heights",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD84",
+		"lat":39.984489,
+		"lon":-105.245750,
+		"distance_km":7,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"Tantra Lake",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD120",
+		"lat":39.980614,
+		"lon":-105.237526,
+		"distance_km":7,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"North Boulder Ridge",
+		"city":"Boulder",
+		"state":"CO",
+		"country":"US",
+		"id":"KCOBOULD45",
+		"lat":40.056190,
+		"lon":-105.301689,
+		"distance_km":7,
+		"distance_mi":4
+		}
+		]
+		}
+		}
+	}
+  ,	"current_observation": {
+		"image": {
+		"url":"http://icons.wxug.com/graphics/wu2/logo_130x80.png",
+		"title":"Weather Underground",
+		"link":"http://www.wunderground.com"
+		},
+		"display_location": {
+		"full":"Boulder, CO",
+		"city":"Boulder",
+		"state":"CO",
+		"state_name":"Colorado",
+		"country":"US",
+		"country_iso3166":"US",
+		"zip":"80301",
+		"magic":"1",
+		"wmo":"99999",
+		"latitude":"40.04679489",
+		"longitude":"-105.21250153",
+		"elevation":"1605.00000000"
+		},
+		"observation_location": {
+		"full":"63rd St & Jay Rd, Boulder, Colorado",
+		"city":"63rd St & Jay Rd, Boulder",
+		"state":"Colorado",
+		"country":"US",
+		"country_iso3166":"US",
+		"latitude":"40.055550",
+		"longitude":"-105.208595",
+		"elevation":"5202 ft"
+		},
+		"estimated": {
+		},
+		"station_id":"KCOBOULD39",
+		"observation_time":"Last Updated on December 2, 9:21 PM MST",
+		"observation_time_rfc822":"Tue, 02 Dec 2014 21:21:55 -0700",
+		"observation_epoch":"1417580515",
+		"local_time_rfc822":"Tue, 02 Dec 2014 21:25:59 -0700",
+		"local_epoch":"1417580759",
+		"local_tz_short":"MST",
+		"local_tz_long":"America/Denver",
+		"local_tz_offset":"-0700",
+		"weather":"Clear",
+		"temperature_string":"40.5 F (4.7 C)",
+		"temp_f":40.5,
+		"temp_c":4.7,
+		"relative_humidity":"47%",
+		"wind_string":"Calm",
+		"wind_dir":"NNE",
+		"wind_degrees":17,
+		"wind_mph":0.0,
+		"wind_gust_mph":"6.0",
+		"wind_kph":0,
+		"wind_gust_kph":"9.7",
+		"pressure_mb":"1016",
+		"pressure_in":"30.02",
+		"pressure_trend":"-",
+		"dewpoint_string":"22 F (-6 C)",
+		"dewpoint_f":22,
+		"dewpoint_c":-6,
+		"heat_index_string":"NA",
+		"heat_index_f":"NA",
+		"heat_index_c":"NA",
+		"windchill_string":"40 F (5 C)",
+		"windchill_f":"40",
+		"windchill_c":"5",
+		"feelslike_string":"40 F (5 C)",
+		"feelslike_f":"40",
+		"feelslike_c":"5",
+		"visibility_mi":"10.0",
+		"visibility_km":"16.1",
+		"solarradiation":"--",
+		"UV":"0","precip_1hr_string":"0.00 in ( 0 mm)",
+		"precip_1hr_in":"0.00",
+		"precip_1hr_metric":" 0",
+		"precip_today_string":"0.00 in (0 mm)",
+		"precip_today_in":"0.00",
+		"precip_today_metric":"0",
+		"icon":"clear",
+		"icon_url":"http://icons.wxug.com/i/c/k/nt_clear.gif",
+		"forecast_url":"http://www.wunderground.com/US/CO/Boulder.html",
+		"history_url":"http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KCOBOULD39",
+		"ob_url":"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=40.055550,-105.208595",
+		"nowcast":""
+	}
+}
