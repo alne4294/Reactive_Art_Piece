@@ -24,12 +24,11 @@ console.log(data);
 setBGColor('BG1', randColor()); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
 setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
 
-setBGColor('BG4', randColor()); setBGColor('BG5', randColor()); setBGColor('BG6', randColor());
+setBGColor('BG4',randColor()); setBGColor('BG5', randColor()); setBGColor('BG6', randColor());
 setFGColor('FG4', randColor()); setFGColor('FG5', randColor()); setFGColor('FG6', randColor());
 
 setBGColor('BG7', randColor()); setBGColor('BG8', randColor()); setBGColor('BG9', randColor());
-setFGColor('FG7', randColor()); setFGColor('FG8', randColor()); setFGColor('FG9', randColor());
-		    			    			    
+setFGColor('FG7', randColor()); setFGColor('FG8', randColor()); setFGColor('FG9', randColor());		    			    			    
 
 /*
 WEATHER
