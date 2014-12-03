@@ -785,9 +785,10 @@
 	
 		<!-- Manual input foreground color select -->
 		<script>
-		setTimeout(function(){
-   window.location.reload(1);
-}, 5000);
+			setInterval(function(){
+			   // window.location.reload(1);
+			   console.log('timeout');
+			}, 3000);
 			var input = (Math.random() * 100) % 256;
 			if (input != null) {
 
