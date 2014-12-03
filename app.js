@@ -1,18 +1,24 @@
+// Include libraries here
 var express = require('express');
-var async = require('async');
-var app = express();
-
 var mongo = require('mongoskin');
 
+// Set up variables here
+var serverPort = 8000;
+var server = express();
 //var db = mongo.db("mongodb://localhost/yelp", {native_parser:true});
 
-app.engine('.html', require('ejs').__express);
-app.set('views', __dirname);
-app.set('view engine', 'html');
 
-app.get('', function(req, res) {
-  res.render("views/index.html");
+// Set up the server
+server.engine('.html', require('ejs').__express);
+server.set('views', __dirname);
+server.use('/assets', express.static(__dirname + '/assets'));
+server.set('view engine', 'html');
+
+
+server.get('/', function(req, res) {
+  res.render("index.html");
 });
 
-app.listen(8000);
-console.log('listening on port 8000');
+// Start the server
+server.listen(serverPort);
+console.log('listening on port ' + serverPort);
