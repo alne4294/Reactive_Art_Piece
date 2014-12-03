@@ -1,3 +1,4 @@
+
 /* Function declarations */
 function setBGColor(image, color) {
 	document.getElementById(image).style.fill = color;
@@ -11,19 +12,22 @@ function randColor() {
 	return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
 
-var scaleColor = d3.scale.linear()
-	.domain([0, 50, 100])
-	.range(["red", "white", "green"]);
+//Global function to turn numerical data into numbers ranged on a blue scale
+function numberToColor(number){
+	colorint = Math.round(number); //Cut off
+	colorint = colorint * 1000; //make the contrast of volume larger. We can change this later.
+	return 'rgb( 0, 0 , ' + colorint + ')'
+}
+
+console.log(numberToColor(data));
 
 /************************/
 /* BEGIN CODE THAT RUNS */
 /************************/
 
-
-console.log(data);
 //This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
-setBGColor('BG1', randColor()); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
+setBGColor('BG1', numberToColor(data)); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
 setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
 
 setBGColor('BG4',randColor()); setBGColor('BG5', randColor()); setBGColor('BG6', randColor());
