@@ -49,6 +49,54 @@ jQuery(document).ready(function($) {
 });
 */
 
+/*		
+jQuery(document).ready(function($) {
+  $.ajax({
+	  url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Copper_Mountain.json",
+	  dataType : "jsonp",
+	  success : function(parsed_json) {
+		  var icon = parsed_json['current_observation']['icon'];
+		
+		  setBGColor('BG4', scaleColor(icon));
+		  setFGColor('FG4', "orange");
+		  
+	  }
+  });
+});
+*/
+
+/*
+jQuery(document).ready(function($) {
+  $.ajax({
+	  url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Boulder.json",
+	  dataType : "jsonp",
+	  success : function(parsed_json) {
+		  var wind_gust_mph = parsed_json['current_observation']['wind_gust_mph'];
+
+		  setBGColor('BG5', scaleColor(wind_gust_mph));
+		  setFGColor('FG5', "blue");
+		  
+	  }
+  });
+});
+*/		
+/*	
+
+jQuery(document).ready(function($) {
+  $.ajax({
+	  url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Breckenridge.json",
+	  dataType : "jsonp",
+	  success : function(parsed_json) {
+		  var precip_1hr_in = parsed_json['current_observation']['precip_1hr_in'];
+
+		  setBGColor('BG6', scaleColor(precip_1hr_in));
+		  setFGColor('FG6', "pink");
+			    	  
+	 }
+  });
+});
+		
+		</script>
 /*
 var mongo = require('mongoskin');
 var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
