@@ -1,10 +1,10 @@
 /* Function declarations */
 function setBGColor(image, color) {
-	document.getElementById(image).style.background = color;
+	document.getElementById(image).style.fill = color;
 }
 
 function setFGColor(image, color) {
-	document.getElementById(image).style.fill = color;
+	document.getElementById(image).style.background = color;
 }
 
 function randColor() {
