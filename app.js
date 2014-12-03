@@ -16,7 +16,7 @@ server.set('view engine', 'html');
 
 
 server.get('/', function(req, res) {
-  res.render("index.html");
+  res.render("index.html", {data: 'TEST STRING'});
 });
 
 // Start the server

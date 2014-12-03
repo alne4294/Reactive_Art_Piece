@@ -1,8 +1,17 @@
 <html>
 	<body>
+		<!-- These are necessary included libraries!! -->
+		<script type="text/javascript" src="assets/ejs_production.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 		
+		<!-- This is where we get data from the node server, and allow
+			 our mainLogic.js script to access it. -->
+		<script>
+		var data = '<%- data %>';
+		</script>
+
+
 		<svg version="1.0" id="FG1" xmlns="http://www.w3.org/2000/svg"
 		 width="262.000000pt" height="333.000000pt" viewBox="0 0 262.000000 333.000000"
 		 preserveAspectRatio="xMidYMid meet">

@@ -19,6 +19,8 @@ var scaleColor = d3.scale.linear()
 /* BEGIN CODE THAT RUNS */
 /************************/
 
+console.log(data);
+
 setBGColor('BG1', randColor()); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
 setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
 
