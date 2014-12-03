@@ -19,7 +19,9 @@ var scaleColor = d3.scale.linear()
 /* BEGIN CODE THAT RUNS */
 /************************/
 
+
 console.log(data);
+//This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
 setBGColor('BG1', randColor()); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
 setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
