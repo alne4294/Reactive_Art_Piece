@@ -33,7 +33,7 @@ var tweets = []
 
 
 		stream.on('data', function(json) {
-			tweets.push(json)
+			tweets.push(json)	
 			console.log(json);
 
 		});

@@ -34,8 +34,7 @@ setBGColor('BG1', numberToColor(frequencies[0], freqscale)); setBGColor('BG2', n
 setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
 setBGColor('BG4',numberToColor(frequencies[3], freqscale)); setBGColor('BG5', numberToColor(data, 4)); setBGColor('BG6', numberToColor(frequencies[5], freqscale));
 setFGColor('FG4', randColor()); setFGColor('FG5', randColor()); setFGColor('FG6', randColor());
-setBGColor('BG7', numberToColor(frequencies[6], freqscale)); setBGColor('BG8', numberToColor(frequencies[7], freqscale)); setBGColor('BG9', numberToColor(frequencies[7], freqscale));
-setFGColor('FG7', randColor()); setFGColor('FG8', randColor()); setFGColor('FG9', randColor());
+
 /*
 
 Pictures:
@@ -132,11 +131,12 @@ console.log('timer tick');
 
 
 setInterval(function() {
+	console.log('bacon')
 $.get( "twitter", function( data ) {
-	console.log(data)
-  var tweets = JSON.stringify(data);
-  console.log(tweets.length)
-  console.log('hihi')
+	console.log(data);
+  var tweets = data;
+  console.log(tweets.length+"hihi");
+  
 });
 
 },6000)
