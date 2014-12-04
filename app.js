@@ -46,7 +46,7 @@ server.get('/', function(req, res) {
 		volume = result['noise']['level'];
 		frequency = result['frequency']['values'];
 
-		res.render("index.html", {volume: volume, frequencies: frequency,tweets:tweets});
+		res.render("index.html", {volume: volume, frequencies: frequency});
 	});
 });
 
