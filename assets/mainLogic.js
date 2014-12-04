@@ -20,7 +20,7 @@ function randColor() {
 }
 
 
-//Global function to turn numerical data into numbers ranged on a purple-red scale
+//Global function to turn numerical data into color ranged on a purple-red scale
 
 function numberToColor(number, scale){
 colorint = Math.round(number); 
