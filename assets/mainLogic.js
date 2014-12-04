@@ -123,3 +123,15 @@ and this will help.
 setInterval(function(){
 console.log('timer tick');
 }, 3000);
+
+
+setInterval(function() {
+console.log('pig<fucker')
+$.get( "twitter", function( data ) {
+	console.log(data)
+  var tweets = JSON.stringify(data);
+  console.log(tweets.length)
+  console.log('hihi')
+});
+
+},6000)

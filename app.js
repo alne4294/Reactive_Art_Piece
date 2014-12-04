@@ -5,6 +5,8 @@ var mongo = require('mongoskin');
 var serverPort = 8000;
 var server = express();
 
+var page;
+
 var Stream = require('user-stream');
 
 var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
@@ -32,7 +34,8 @@ var tweets = []
 
 		stream.on('data', function(json) {
 			tweets.push(json)
-			console.log(json)
+			console.log(json);
+
 		});
 
 
@@ -46,6 +49,15 @@ server.get('/', function(req, res) {
 		res.render("index.html", {volume: volume, frequencies: frequency,tweets:tweets});
 	});
 });
+
+
+server.get('/twitter', function(req, res) {
+	res.send(tweets);
+});
+
+
+
+
 // Start the server
 server.listen(serverPort);
 console.log('listening on port ' + serverPort);
