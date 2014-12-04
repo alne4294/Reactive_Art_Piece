@@ -80,19 +80,6 @@ setFGColor('FG6', randColor());
 
 /*
 
-Pictures:
-
-1. Foreground:  Background: Sound Frequency[First Bucket]
-2. Foreground:  Background: Sound Frequency[Second Bucket]
-3. Foreground:  Background: Sound Frequency[Third Bucket]
-4. Foreground:  Background: Sound Frequency[Fourth Bucket]
-5. Foreground:  Background: Sound Volume
-6. Foreground:  Background: Sound Frequency[Fifth Bucket]
-7. Foreground:  Background: Sound Frequency[Sixth Bucket]
-8. Foreground:  Background: Sound Frequency[Seventh Bucket]
-9. Foreground:  Background: Sound Frequency[Eighth Bucket]
-
-
 WEATHER
 See documentation: http://www.wunderground.com/weather/api/d/docs?d=index
 No more than 500 calls per day (for free account)
