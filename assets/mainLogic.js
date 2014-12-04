@@ -1,6 +1,8 @@
 /*Variable Definitions*/
-var freqscale = 20;
+var freqscale = 15;
  var frequencies = JSON.parse(sounds);
+ var sum = 0;
+ var sum2 = 0;
 
 /* Function declarations */
 function setBGColor(image, color) {
@@ -28,19 +30,28 @@ colorint = (colorint) * scale  ;
 return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
 }
 
-//console.log(sounds[1]);
 /************************/
 /* BEGIN CODE THAT RUNS */
 /************************/
-//This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
- console.log(frequencies);
+// Averageing the sound frequencies of buckets 1-4 
 
+for(i = 0; i < 4; i++) {
+    sum = sum + frequencies[i];
+} 
+sum = sum/ 4;
 
-// Image One: Data Source = Sound Data
-setBGColor('BG1', numberToColor(frequencies[0], freqscale));
-setMGColor('MG1', randColor());
-setFGColor('FG1', randColor());
+// Averaging the sound frequencies of buckets 5-8
+
+for(i = 4; i < 8; i++) {
+    sum2 = sum2 + frequencies[i];
+} 
+sum2 = sum2 / 4;
+
+// Image One: Data Source = Sound Data Server
+setBGColor('BG1', numberToColor(data, 2));
+setMGColor('MG1', numberToColor(sum, freqscale));
+setFGColor('FG1', numberToColor(sum2, freqscale));
 
 // Image Two: Data Source = ???
 setBGColor('BG2', numberToColor(frequencies[1], freqscale));
