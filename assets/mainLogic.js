@@ -1,3 +1,6 @@
+/*Variable Definitions*/
+var freqscale = 20;
+
 /* Function declarations */
 function setBGColor(image, color) {
 document.getElementById(image).style.fill = color;
@@ -23,27 +26,29 @@ return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
 /************************/
 //This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
-var parse = JSON.parse(sounds);
+var frequencies = JSON.parse(sounds);
 
-setBGColor('BG1', numberToColor(data, 5)); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
+console.log(frequencies);
+
+setBGColor('BG1', numberToColor(frequencies[0], freqscale)); setBGColor('BG2', numberToColor(frequencies[1], freqscale)); setBGColor('BG3', numberToColor(frequencies[2], freqscale));
 setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
-setBGColor('BG4',randColor()); setBGColor('BG5', randColor()); setBGColor('BG6', randColor());
+setBGColor('BG4',numberToColor(frequencies[3], freqscale)); setBGColor('BG5', numberToColor(data, 4)); setBGColor('BG6', numberToColor(frequencies[5], freqscale));
 setFGColor('FG4', randColor()); setFGColor('FG5', randColor()); setFGColor('FG6', randColor());
-setBGColor('BG7', randColor()); setBGColor('BG8', randColor()); setBGColor('BG9', randColor());
+setBGColor('BG7', numberToColor(frequencies[6], freqscale)); setBGColor('BG8', numberToColor(frequencies[7], freqscale)); setBGColor('BG9', numberToColor(frequencies[7], freqscale));
 setFGColor('FG7', randColor()); setFGColor('FG8', randColor()); setFGColor('FG9', randColor());
 /*
 
 Pictures:
 
-1. Foreground:  Background: Sound Volume
-2. Foreground:  Background:
-3. Foreground:  Background:
-4. Foreground:  Background:
-5. Foreground:  Background:
-6. Foreground:  Background:
-7. Foreground:  Background:
-8. Foreground:  Background:
-9. Foreground:  Background:
+1. Foreground:  Background: Sound Frequency[First Bucket]
+2. Foreground:  Background: Sound Frequency[Second Bucket]
+3. Foreground:  Background: Sound Frequency[Third Bucket]
+4. Foreground:  Background: Sound Frequency[Fourth Bucket]
+5. Foreground:  Background: Sound Volume
+6. Foreground:  Background: Sound Frequency[Fifth Bucket]
+7. Foreground:  Background: Sound Frequency[Sixth Bucket]
+8. Foreground:  Background: Sound Frequency[Seventh Bucket]
+9. Foreground:  Background: Sound Frequency[Eighth Bucket]
 
 
 WEATHER
