@@ -33,7 +33,7 @@ return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
 /************************/
 //This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
-// var frequencies = JSON.parse(sounds);
+var frequencies = JSON.parse(sounds);
 
 // console.log(frequencies);
 
