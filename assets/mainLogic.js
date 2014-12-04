@@ -3,14 +3,21 @@ var freqscale = 20;
 
 /* Function declarations */
 function setBGColor(image, color) {
-document.getElementById(image).style.fill = color;
+	document.getElementById(image).style.fill = color;
 }
+
+function setMGColor(image, color) {
+	document.getElementById(image).style.fill = color;
+}
+
 function setFGColor(image, color) {
-document.getElementById(image).style.background = color;
+	document.getElementById(image).style.background = color;
 }
+
 function randColor() {
-return '#'+Math.floor(Math.random()*16777215).toString(16);
+	return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
+
 
 //Global function to turn numerical data into numbers ranged on a purple-red scale
 
@@ -26,14 +33,40 @@ return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
 /************************/
 //This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
-var frequencies = JSON.parse(sounds);
+// var frequencies = JSON.parse(sounds);
 
-console.log(frequencies);
+// console.log(frequencies);
 
-setBGColor('BG1', numberToColor(frequencies[0], freqscale)); setBGColor('BG2', numberToColor(frequencies[1], freqscale)); setBGColor('BG3', numberToColor(frequencies[2], freqscale));
-setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
-setBGColor('BG4',numberToColor(frequencies[3], freqscale)); setBGColor('BG5', numberToColor(data, 4)); setBGColor('BG6', numberToColor(frequencies[5], freqscale));
-setFGColor('FG4', randColor()); setFGColor('FG5', randColor()); setFGColor('FG6', randColor());
+
+// Image One: Data Source = ???
+setBGColor('BG1', numberToColor(frequencies[0], freqscale));
+segMGColor('MG1', randColor());
+setFGColor('FG1', randColor());
+
+// Image Two: Data Source = ???
+setBGColor('BG2', numberToColor(frequencies[1], freqscale));
+segMGColor('MG2', randColor());
+setFGColor('FG2', randColor());
+
+// Image One: Data Source = ???
+setBGColor('BG3', numberToColor(frequencies[2], freqscale));
+segMGColor('MG3', randColor());
+setFGColor('FG3', randColor());
+
+// Image Four: Data Source = ???
+setBGColor('BG4',numberToColor(frequencies[3], freqscale));
+segMGColor('MG4', randColor());
+setFGColor('FG4', randColor());
+
+// Image Five: Data Source = ???
+setBGColor('BG5', numberToColor(data, 4));
+segMGColor('MG5', randColor());
+setFGColor('FG5', randColor());
+
+// Image Six: Data Source = Weather??
+setBGColor('BG6', numberToColor(frequencies[5], freqscale));
+segMGColor('MG6', randColor());
+setFGColor('FG6', randColor());
 
 /*
 
@@ -106,37 +139,16 @@ setFGColor('FG6', "pink");
 });
 });
 </script>
-/*
-var mongo = require('mongoskin');
-var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
-db.bind('noise');
-db.noise.findOne({},{ "noise.level": true}, function(err, result) {
-JSON.stringify(result);
-var num = result['noise']['level'];//noise level
-var color = d3.scale.linear()
-.domain([0, 50, 100])
-.range(["red", "white", "green"]);
-document.getElementById('woz3').style.background = color(num); //insert noise level into the vizualization
-document.getElementById('G3').style.fill = "red";
-db.close();
-});
-*/
+
 /* This is a timer, where its last line is the number of milliseconds
 it ticks on. Eventually we need to implement transitions or something,
 and this will help.
 */
-setInterval(function(){
-console.log('timer tick');
-}, 3000);
-
 
 setInterval(function() {
-	console.log('bacon')
-$.get( "twitter", function( data ) {
-	console.log(data);
-  var tweets = data;
-  console.log(tweets.length+"hihi");
-  
-});
-
+	$.get( "twitter", function( data ) {
+		console.log(data);
+  		var tweets = data;
+  		console.log(tweets.length+"hihi");
+  	});
 },6000)

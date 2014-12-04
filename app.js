@@ -19,26 +19,24 @@ server.set('view engine', 'html');
 
 var tweets = []
 
-		var stream = new Stream({
-			consumer_key: 'wFJkc8dUi2y4XtbChF40Kytuf',
-			consumer_secret: 'fyeLrMTcj2BM8uIkzK23k3ombdUbjY0atNLjnc1yDc5B33TFTG',
-			access_token_key: '398804407-NsODrzPwOn4hMwsawIJLFPaMiTK6YeMdvqsitAHd',
-			access_token_secret: '1hInAOIC61TxPAohWSgIvpINsSiPUmlRbNtCRFJTFPC3U'
-		});
+var stream = new Stream({
+	consumer_key: 'wFJkc8dUi2y4XtbChF40Kytuf',
+	consumer_secret: 'fyeLrMTcj2BM8uIkzK23k3ombdUbjY0atNLjnc1yDc5B33TFTG',
+	access_token_key: '398804407-NsODrzPwOn4hMwsawIJLFPaMiTK6YeMdvqsitAHd',
+	access_token_secret: '1hInAOIC61TxPAohWSgIvpINsSiPUmlRbNtCRFJTFPC3U'
+});
 
-		var params = {
-			track: 'cu boulder'
-		}
-		stream.stream(params);
-
-
-		stream.on('data', function(json) {
-			tweets.push(json)	
-			console.log(json);
-
-		});
+var params = {
+	track: 'cu boulder'
+}
+stream.stream(params);
 
 
+stream.on('data', function(json) {
+	tweets.push(json)	
+	console.log(json);
+
+});
 
 server.get('/', function(req, res) {
 	db.collection('noise').findOne({},{}, function(err, result) {
@@ -50,12 +48,14 @@ server.get('/', function(req, res) {
 	});
 });
 
+server.get('/test', function(req, res) {
+	res.render("test.html");
+});
+
 
 server.get('/twitter', function(req, res) {
 	res.send(tweets);
 });
-
-
 
 
 // Start the server
