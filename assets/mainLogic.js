@@ -1,5 +1,6 @@
 /*Variable Definitions*/
 var freqscale = 20;
+ var frequencies = JSON.parse(sounds);
 
 /* Function declarations */
 function setBGColor(image, color) {
@@ -33,34 +34,32 @@ return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
 /************************/
 //This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
-// var frequencies = JSON.parse(sounds);
-
-// console.log(frequencies);
+ console.log(frequencies);
 
 
-// Image One: Data Source = ???
+// Image One: Data Source = Sound Data
 setBGColor('BG1', numberToColor(frequencies[0], freqscale));
-segMGColor('MG1', randColor());
+setMGColor('MG1', randColor());
 setFGColor('FG1', randColor());
 
 // Image Two: Data Source = ???
 setBGColor('BG2', numberToColor(frequencies[1], freqscale));
-segMGColor('MG2', randColor());
+setMGColor('MG2', randColor());
 setFGColor('FG2', randColor());
 
 // Image One: Data Source = ???
 setBGColor('BG3', numberToColor(frequencies[2], freqscale));
-segMGColor('MG3', randColor());
+setMGColor('MG3', randColor());
 setFGColor('FG3', randColor());
 
 // Image Four: Data Source = ???
 setBGColor('BG4',numberToColor(frequencies[3], freqscale));
-segMGColor('MG4', randColor());
+setMGColor('MG4', randColor());
 setFGColor('FG4', randColor());
 
 // Image Five: Data Source = ???
 setBGColor('BG5', numberToColor(data, 4));
-segMGColor('MG5', randColor());
+setMGColor('MG5', randColor());
 setFGColor('FG5', randColor());
 
 // Image Six: Data Source = Weather??
