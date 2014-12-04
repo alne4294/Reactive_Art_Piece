@@ -8,23 +8,24 @@ document.getElementById(image).style.background = color;
 function randColor() {
 return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
-//Global function to turn numerical data into numbers ranged on a blue scale
-function numberToColor(number){
-colorint = Math.round(number); //Cut off
-colorint = colorint * 1000; //make the contrast of volume larger. We can change this later.
-return 'rgb( 0, 0 , ' + colorint + ')'
-}
-console.log(numberToColor(data));
-console.log(sounds);
-var parse = JSON.parse(sounds);
 
-console.log(parse);
+//Global function to turn numerical data into numbers ranged on a purple-red scale
+
+function numberToColor(number, scale){
+colorint = Math.round(number); 
+colorint = (colorint) * scale  ; 
+return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
+}
+
 //console.log(sounds[1]);
 /************************/
 /* BEGIN CODE THAT RUNS */
 /************************/
 //This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
-setBGColor('BG1', numberToColor(data)); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
+
+var parse = JSON.parse(sounds);
+
+setBGColor('BG1', numberToColor(data, 5)); setBGColor('BG2', randColor()); setBGColor('BG3', randColor());
 setFGColor('FG1', randColor()); setFGColor('FG2', randColor()); setFGColor('FG3', randColor());
 setBGColor('BG4',randColor()); setBGColor('BG5', randColor()); setBGColor('BG6', randColor());
 setFGColor('FG4', randColor()); setFGColor('FG5', randColor()); setFGColor('FG6', randColor());
@@ -34,7 +35,7 @@ setFGColor('FG7', randColor()); setFGColor('FG8', randColor()); setFGColor('FG9'
 
 Pictures:
 
-1. Foreground:  Background:
+1. Foreground:  Background: Sound Volume
 2. Foreground:  Background:
 3. Foreground:  Background:
 4. Foreground:  Background:
