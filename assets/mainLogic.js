@@ -132,7 +132,6 @@ console.log('timer tick');
 
 
 setInterval(function() {
-console.log('pig<fucker')
 $.get( "twitter", function( data ) {
 	console.log(data)
   var tweets = JSON.stringify(data);
