@@ -48,6 +48,26 @@ for(i = 4; i < 8; i++) {
 } 
 sum2 = sum2 / 4;
 
+/*
+
+WEATHER
+See documentation: http://www.wunderground.com/weather/api/d/docs?d=index
+No more than 500 calls per day (for free account)
+*/
+/*
+jQuery(document).ready(function($) {
+$.ajax({
+url : "http://api.wunderground.com/api/431bf54052c58a0a/geolookup/conditions/q/CO/Boulder.json",
+dataType : "jsonp",
+success : function(parsed_json) {
+var temp_f = parsed_json['current_observation']['temp_f'];
+setBGColor('BG3', scaleColor(temp_f));
+setFGColor('FG3', "DarkSlateBlue");
+}
+});
+});
+*/
+
 // Image One: Data Source = Sound Data Server
 setBGColor('BG1', numberToColor(data, 2));
 //setMGColor('MG1', numberToColor(sum, freqscale));

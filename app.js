@@ -39,10 +39,10 @@ stream.on('data', function(json) {
 });
 
 server.get('/', function(req, res) {
-	db.collection('noise').findOne({},{}, function(err, result) {
-		JSON.stringify(result);
-		volume = result['noise']['level'];
-		frequency = result['frequency']['values'];
+	db.collection('noise').find({},{"sort" : ['date', 'dsc']}).limit(1).toArray(function(err, result) {
+		console.log(result[0]);
+		volume = result[0]['noise']['level'];
+		frequency = result[0]['frequency']['values'];
 
 		res.render("index.html", {volume: volume, frequencies: frequency});
 	});
