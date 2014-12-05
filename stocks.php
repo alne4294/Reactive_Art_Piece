@@ -2,7 +2,7 @@
 
 
     
-    $format = "l1";
+    $format = "c1";
 	$s = file_get_contents("http://finance.yahoo.com/d/quotes.csv?s=AAPL&f=$format&e=.csv");
 	$data = explode(",", $s);
    
