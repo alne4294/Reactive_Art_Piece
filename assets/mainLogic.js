@@ -50,32 +50,32 @@ sum2 = sum2 / 4;
 
 // Image One: Data Source = Sound Data Server
 setBGColor('BG1', numberToColor(data, 2));
-//setMGColor('MG1', numberToColor(sum, freqscale));
+setMGColor('MG1', numberToColor(sum, freqscale));
 setFGColor('FG1', numberToColor(sum2, freqscale));
 
 // Image Two: Data Source = ???
 setBGColor('BG2', numberToColor(frequencies[1], freqscale));
-//setMGColor('MG2', randColor());
+setMGColor('MG2', randColor());
 setFGColor('FG2', randColor());
 
 // Image One: Data Source = ???
 setBGColor('BG3', numberToColor(frequencies[2], freqscale));
-//setMGColor('MG3', randColor());
+setMGColor('MG3', randColor());
 setFGColor('FG3', randColor());
 
 // Image Four: Data Source = ???
 setBGColor('BG4',numberToColor(frequencies[3], freqscale));
-//setMGColor('MG4', randColor());
+setMGColor('MG4', randColor());
 setFGColor('FG4', randColor());
 
 // Image Five: Data Source = ???
 setBGColor('BG5', numberToColor(data, 4));
-//setMGColor('MG5', randColor());
+setMGColor('MG5', randColor());
 setFGColor('FG5', randColor());
 
 // Image Six: Data Source = Weather??
 setBGColor('BG6', numberToColor(frequencies[5], freqscale));
-//setMGColor('MG6', randColor());
+setMGColor('MG6', randColor());
 setFGColor('FG6', randColor());
 
 /*
