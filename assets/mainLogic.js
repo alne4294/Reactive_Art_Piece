@@ -1,5 +1,8 @@
 /*Variable Definitions*/
-var freqscale = 20;
+var freqscale = 15;
+ var frequencies = JSON.parse(sounds);
+ var sum = 0;
+ var sum2 = 0;
 
 /* Function declarations */
 function setBGColor(image, color) {
@@ -19,7 +22,7 @@ function randColor() {
 }
 
 
-//Global function to turn numerical data into numbers ranged on a purple-red scale
+//Global function to turn numerical data into color ranged on a purple-red scale
 
 function numberToColor(number, scale){
 colorint = Math.round(number); 
@@ -27,61 +30,55 @@ colorint = (colorint) * scale  ;
 return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
 }
 
-//console.log(sounds[1]);
 /************************/
 /* BEGIN CODE THAT RUNS */
 /************************/
-//This will show the volume on the web console to make sure it is being passed in. Now we need to translate it into a color.
 
 var frequencies = JSON.parse(sounds);
 
-// console.log(frequencies);
+for(i = 0; i < 4; i++) {
+    sum = sum + frequencies[i];
+} 
+sum = sum/ 4;
 
+// Averaging the sound frequencies of buckets 5-8
 
-// Image One: Data Source = ???
-setBGColor('BG1', numberToColor(frequencies[0], freqscale));
-segMGColor('MG1', randColor());
-setFGColor('FG1', randColor());
+for(i = 4; i < 8; i++) {
+    sum2 = sum2 + frequencies[i];
+} 
+sum2 = sum2 / 4;
+
+// Image One: Data Source = Sound Data Server
+setBGColor('BG1', numberToColor(data, 2));
+//setMGColor('MG1', numberToColor(sum, freqscale));
+setFGColor('FG1', numberToColor(sum2, freqscale));
 
 // Image Two: Data Source = ???
 setBGColor('BG2', numberToColor(frequencies[1], freqscale));
-segMGColor('MG2', randColor());
+//setMGColor('MG2', randColor());
 setFGColor('FG2', randColor());
 
 // Image One: Data Source = ???
 setBGColor('BG3', numberToColor(frequencies[2], freqscale));
-segMGColor('MG3', randColor());
+//setMGColor('MG3', randColor());
 setFGColor('FG3', randColor());
 
 // Image Four: Data Source = ???
 setBGColor('BG4',numberToColor(frequencies[3], freqscale));
-segMGColor('MG4', randColor());
+//setMGColor('MG4', randColor());
 setFGColor('FG4', randColor());
 
 // Image Five: Data Source = ???
 setBGColor('BG5', numberToColor(data, 4));
-segMGColor('MG5', randColor());
+//setMGColor('MG5', randColor());
 setFGColor('FG5', randColor());
 
 // Image Six: Data Source = Weather??
 setBGColor('BG6', numberToColor(frequencies[5], freqscale));
-segMGColor('MG6', randColor());
+//setMGColor('MG6', randColor());
 setFGColor('FG6', randColor());
 
 /*
-
-Pictures:
-
-1. Foreground:  Background: Sound Frequency[First Bucket]
-2. Foreground:  Background: Sound Frequency[Second Bucket]
-3. Foreground:  Background: Sound Frequency[Third Bucket]
-4. Foreground:  Background: Sound Frequency[Fourth Bucket]
-5. Foreground:  Background: Sound Volume
-6. Foreground:  Background: Sound Frequency[Fifth Bucket]
-7. Foreground:  Background: Sound Frequency[Sixth Bucket]
-8. Foreground:  Background: Sound Frequency[Seventh Bucket]
-9. Foreground:  Background: Sound Frequency[Eighth Bucket]
-
 
 WEATHER
 See documentation: http://www.wunderground.com/weather/api/d/docs?d=index
