@@ -37,7 +37,7 @@ function numberToColor(number, scale){
 	var blueValue = 100;
 	var greenValue = 40;
 
-	return 'rgb(' + redValue + ',' + greenValue + ',' + blueValue + ')';
+	return rgbString(redValue, greenValue, blueValue);
 
 	// Chris, I like the method you used here, I just tried to clean it up.
 	// I hope the logic works the same.
