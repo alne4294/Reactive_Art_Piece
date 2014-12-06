@@ -25,9 +25,15 @@ function randColor() {
 //Global function to turn numerical data into color ranged on a purple-red scale
 
 function numberToColor(number, scale){
-colorint = Math.round(number); 
-colorint = (colorint) * scale  ; 
-return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')'
+	colorint = Math.round(number); 
+	colorint = (colorint) * scale  ; 
+	return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')';
+}
+
+function windColor(number) {
+	value = Math.round(number);
+	var scale = d3.scale.linear().domain([0, 50]).range([100, 100]);
+	return 'rgb(100,100,' + scale(value) + ')';
 }
 
 /************************/
@@ -73,10 +79,8 @@ setBGColor('BG5', numberToColor(data, 4));
 setMGColor('MG5', randColor());
 setFGColor('FG5', randColor());
 
-// Image Six: Data Source = Weather??
-setBGColor('BG6', numberToColor(frequencies[5], freqscale));
-setMGColor('MG6', randColor());
-setFGColor('FG6', randColor());
+// Image Six: Data Source = Weather
+queryWeather();
 
 /*
 
@@ -97,19 +101,20 @@ setFGColor('FG3', "DarkSlateBlue");
 });
 });
 */
-/*
-jQuery(document).ready(function($) {
-$.ajax({
-url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Copper_Mountain.json",
-dataType : "jsonp",
-success : function(parsed_json) {
-var icon = parsed_json['current_observation']['icon'];
-setBGColor('BG4', scaleColor(icon));
-setFGColor('FG4', "orange");
+
+function queryWeather() {
+	$.ajax({
+		url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Copper_Mountain.json",
+		dataType : "jsonp",
+		success : function(parsed_json) {
+			var windSpeed = parsed_json['current_observation']['wind_mph'];
+			var temperature = parsed_json['current_observation']['temp_f'];
+			var windDirection = parsed_json['current_observation']['wind_degrees'];
+			setFGColor('FG6', windColor(windSpeed));
+		}
+	});
 }
-});
-});
-*/
+
 /*
 jQuery(document).ready(function($) {
 $.ajax({
@@ -149,3 +154,5 @@ setInterval(function() {
   		console.log(tweets.length+"hihi");
   	});
 },6000)
+
+setInterval(queryWeather, 5000); // interval to update picture 6 weather info
