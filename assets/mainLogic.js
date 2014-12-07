@@ -1,5 +1,4 @@
 /*Variable Definitions*/
-var freqscale = 15;
  var frequencies = JSON.parse(sounds);
  var sum = 0;
  var sum2 = 0;
@@ -29,19 +28,38 @@ function rgbString(redValue, greenValue, blueValue) {
 /* Scaling functions */
 /*********************/
 
-function numberToColor(number, scale){
+function volumeColor(number){
 	colorint = Math.round(number); 
-	colorint *= scale;
+	colorint *= 2;
 
 	var redValue = 100 + colorint;
 	var blueValue = 100;
 	var greenValue = 40;
 
 	return rgbString(redValue, greenValue, blueValue);
+}
 
-	// Chris, I like the method you used here, I just tried to clean it up.
-	// I hope the logic works the same.
-	//return 'rgb( ' + (100 + colorint) + ', 40 , ' + (100) + ')';
+function frequency1Color(number){
+	colorint = Math.round(number); 
+	colorint *= 10;
+
+	var redValue = 0 + (2 * colorint);
+	var blueValue = 100 - colorint;
+	var greenValue = 20;
+
+	return rgbString(redValue, greenValue, blueValue);
+}
+
+function frequency2Color(number){
+	colorint = Math.round(number); 
+	colorint *= 10;
+
+	var redValue = 40;
+	var blueValue = 40;
+	var greenValue = 100 + colorint;
+
+	return rgbString(redValue, greenValue, blueValue);
+
 }
 
 function windColor(number) {
@@ -125,9 +143,9 @@ setFGColor('FG3', "DarkSlateBlue");
 */
 
 // Image One: Data Source = Sound Data Server
-setBGColor('BG1', numberToColor(data, 2));
-setMGColor('MG1', numberToColor(sum, freqscale));
-setFGColor('FG1', numberToColor(sum2, freqscale));
+setBGColor('BG1', volumeColor(data));
+setMGColor('MG1', frequency1Color(sum));
+setFGColor('FG1', frequency2Color(sum2));
 
 // Image Two: Data Source = ???
 setBGColor('BG2', numberToColor(frequencies[1], freqscale));
