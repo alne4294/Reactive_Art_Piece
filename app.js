@@ -48,10 +48,6 @@ server.get('/', function(req, res) {
 	});
 });
 
-server.get('/test', function(req, res) {
-	res.render("test.html");
-});
-
 
 server.get('/twitter', function(req, res) {
 	res.send(tweets);
