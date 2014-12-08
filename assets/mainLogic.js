@@ -148,7 +148,6 @@ setFGColor('FG3', "DarkSlateBlue");
 function updateSoundData() {
 	$.get( '/', function( sound ) {
 //console.log(sound);
-console.log(sound);
 setBGColor('BG1', volumeColor(data));
 setMGColor('MG1', frequency1Color(sum));
 setFGColor('FG1', frequency2Color(sum2));
