@@ -144,23 +144,14 @@ setFGColor('FG3', "DarkSlateBlue");
 */
 
 // Image One: Data Source = Sound Data Server
+updateSoundData();
 
-function updateSoundData() {
-	$.get( '/', function( sound ) {
-//console.log(sound);
-setBGColor('image1', volumeColor(data));
-setMGColor('image1', frequency1Color(sum));
-setFGColor('image1', frequency2Color(sum2));
-	});
-  	} 
-
-  	updateSoundData();
 // Image Two: Data Source = ???
-
 setBGColor('image2', randColor());
 setMGColor('image2', randColor());
 setFGColor('image2', randColor());
 
+// Image Three: Data Source = ???
 setBGColor('image3', randColor());
 setMGColor('image3', randColor());
 setFGColor('image3', randColor());
@@ -184,28 +175,22 @@ setInterval(queryWeather, 6000); // interval to update picture 6 weather info
 setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
 
 
-/*
-WEATHER
-See documentation: http://www.wunderground.com/weather/api/d/docs?d=index
-No more than 500 calls per day (for free account)
-*/
-/*
-jQuery(document).ready(function($) {
-$.ajax({
-url : "http://api.wunderground.com/api/431bf54052c58a0a/geolookup/conditions/q/CO/Boulder.json",
-dataType : "jsonp",
-success : function(parsed_json) {
-var temp_f = parsed_json['current_observation']['temp_f'];
-setBGColor('BG3', scaleColor(temp_f));
-setFGColor('FG3', "DarkSlateBlue");
-}
-});
-});
-*/
+/********************/
+/* Update functions */
+/********************/
+
+function updateSoundData() {
+	$.get( '/', function( sound ) {
+		//console.log(sound);
+		setBGColor('image1', volumeColor(data));
+		setMGColor('image1', frequency1Color(sum));
+		setFGColor('image1', frequency2Color(sum2));
+	});
+} 
 
 function queryWeather() {
 	$.ajax({
-		url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Copper_Mountain.json",
+		url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Boulder.json",
 		dataType : "jsonp",
 		success : function(parsed_json) {
 			var windSpeed = parsed_json['current_observation']['wind_mph'];
