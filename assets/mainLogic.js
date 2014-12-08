@@ -24,6 +24,7 @@ function rgbString(redValue, greenValue, blueValue) {
 	return 'rgb(' + redValue + ',' + greenValue + ',' + blueValue + ')';
 }
 
+
 /*********************/
 /* Scaling functions */
 /*********************/
@@ -143,27 +144,35 @@ setFGColor('FG3', "DarkSlateBlue");
 */
 
 // Image One: Data Source = Sound Data Server
+
+function updateSoundData() {
+	$.get( '/', function( sound ) {
+//console.log(sound);
+console.log(sound);
 setBGColor('BG1', volumeColor(data));
 setMGColor('MG1', frequency1Color(sum));
 setFGColor('FG1', frequency2Color(sum2));
+	});
+  	} 
 
+  	updateSoundData();
 // Image Two: Data Source = ???
-setBGColor('BG2', numberToColor(frequencies[1], freqscale));
+setBGColor('BG2', randColor());
 setMGColor('MG2', randColor());
 setFGColor('FG2', randColor());
 
 // Image One: Data Source = ???
-setBGColor('BG3', numberToColor(frequencies[2], freqscale));
+setBGColor('BG3', randColor());
 setMGColor('MG3', randColor());
 setFGColor('FG3', randColor());
 
 // Image Four: Data Source = ???
-setBGColor('BG4',numberToColor(frequencies[3], freqscale));
+setBGColor('BG4', randColor());
 setMGColor('MG4', randColor());
 setFGColor('FG4', randColor());
 
 // Image Five: Data Source = ???
-setBGColor('BG5', numberToColor(data, 4));
+setBGColor('BG5', randColor());
 setMGColor('MG5', randColor());
 setFGColor('FG5', randColor());
 
@@ -174,6 +183,7 @@ queryWeather();
 // Start update timers
 setInterval(updateTweets, 6000); // interval to update tweets from node stream
 setInterval(queryWeather, 6000); // interval to update picture 6 weather info
+setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
 
 
 /*
