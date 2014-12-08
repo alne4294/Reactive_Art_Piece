@@ -134,5 +134,5 @@
 			</g> <!-- END BACKGROUND -->
 
 			<rect class="label_background" width="188.0pt" height="10.0pt" />
-			<text class="label"></text>
+			<text class="label" id="labelText"></text>
 		</svg>
