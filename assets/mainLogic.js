@@ -5,15 +5,15 @@
 
 /* Function declarations */
 function setBGColor(image, color) {
-	document.getElementById(image).style.fill = color;
+	document.getElementById(image).contentDocument.getElementById('BG').style.fill = color;
 }
 
 function setMGColor(image, color) {
-	document.getElementById(image).style.fill = color;
+	document.getElementById(image).contentDocument.getElementById('MG').style.fill = color;
 }
 
 function setFGColor(image, color) {
-	document.getElementById(image).style.background = color;
+	document.getElementById(image).contentDocument.getElementById('FG').style.background = color;
 }
 
 function randColor() {
@@ -148,32 +148,32 @@ setFGColor('FG3', "DarkSlateBlue");
 function updateSoundData() {
 	$.get( '/', function( sound ) {
 //console.log(sound);
-setBGColor('BG1', volumeColor(data));
-setMGColor('MG1', frequency1Color(sum));
-setFGColor('FG1', frequency2Color(sum2));
+setBGColor('image1', volumeColor(data));
+setMGColor('image1', frequency1Color(sum));
+setFGColor('image1', frequency2Color(sum2));
 	});
   	} 
 
   	updateSoundData();
 // Image Two: Data Source = ???
 
-setBGColor('BG2', randColor());
-setMGColor('MG2', randColor());
-setFGColor('FG2', randColor());
+setBGColor('image2', randColor());
+setMGColor('image2', randColor());
+setFGColor('image2', randColor());
 
-setBGColor('BG3', randColor());
-setMGColor('MG3', randColor());
-setFGColor('FG3', randColor());
+setBGColor('image3', randColor());
+setMGColor('image3', randColor());
+setFGColor('image3', randColor());
 
 // Image Four: Data Source = ???
-setBGColor('BG4', randColor());
-setMGColor('MG4', randColor());
-setFGColor('FG4', randColor());
+setBGColor('image4', randColor());
+setMGColor('image4', randColor());
+setFGColor('image4', randColor());
 
 // Image Five: Data Source = ???
-setBGColor('BG5', randColor());
-setMGColor('MG5', randColor());
-setFGColor('FG5', randColor());
+setBGColor('image5', randColor());
+setMGColor('image5', randColor());
+setFGColor('image5', randColor());
 
 // Image Six: Data Source = Weather
 queryWeather();
@@ -212,9 +212,9 @@ function queryWeather() {
 			var temperature = parsed_json['current_observation']['temp_f'];
 			var windDirection = parsed_json['current_observation']['wind_degrees'];
 
-			setFGColor('FG6', windColor(windSpeed));
-			setBGColor('BG6', tempColor(temperature));
-			setMGColor('MG6', windDirectionColor(windDirection));
+			setFGColor('image6', windColor(windSpeed));
+			setBGColor('image6', tempColor(temperature));
+			setMGColor('image6', windDirectionColor(windDirection));
 		}
 	});
 }
