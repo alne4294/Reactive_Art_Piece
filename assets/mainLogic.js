@@ -109,70 +109,52 @@ function windDirectionColor(number) {
 /* BEGIN CODE THAT RUNS */
 /************************/
 
-var frequencies = JSON.parse(sounds);
+window.onload = function() {
+	var frequencies = JSON.parse(sounds);
 
-for(i = 0; i < 4; i++) {
-    sum = sum + frequencies[i];
-} 
-sum = sum/ 4;
+	for(i = 0; i < 4; i++) {
+	    sum = sum + frequencies[i];
+	} 
+	sum = sum/ 4;
 
-// Averaging the sound frequencies of buckets 5-8
+	// Averaging the sound frequencies of buckets 5-8
 
-for(i = 4; i < 8; i++) {
-    sum2 = sum2 + frequencies[i];
-} 
-sum2 = sum2 / 4;
+	for(i = 4; i < 8; i++) {
+	    sum2 = sum2 + frequencies[i];
+	} 
+	sum2 = sum2 / 4;
 
-/*
+	// Image One: Data Source = Sound Data Server
+	updateSoundData();
 
-WEATHER
-See documentation: http://www.wunderground.com/weather/api/d/docs?d=index
-No more than 500 calls per day (for free account)
-*/
-/*
-jQuery(document).ready(function($) {
-$.ajax({
-url : "http://api.wunderground.com/api/431bf54052c58a0a/geolookup/conditions/q/CO/Boulder.json",
-dataType : "jsonp",
-success : function(parsed_json) {
-var temp_f = parsed_json['current_observation']['temp_f'];
-setBGColor('BG3', scaleColor(temp_f));
-setFGColor('FG3', "DarkSlateBlue");
+	// Image Two: Data Source = ???
+	setBGColor('image2', randColor());
+	setMGColor('image2', randColor());
+	setFGColor('image2', randColor());
+
+	// Image Three: Data Source = ???
+	setBGColor('image3', randColor());
+	setMGColor('image3', randColor());
+	setFGColor('image3', randColor());
+
+	// Image Four: Data Source = ???
+	setBGColor('image4', randColor());
+	setMGColor('image4', randColor());
+	setFGColor('image4', randColor());
+
+	// Image Five: Data Source = ???
+	setBGColor('image5', randColor());
+	setMGColor('image5', randColor());
+	setFGColor('image5', randColor());
+
+	// Image Six: Data Source = Weather
+	queryWeather();
+
+	// Start update timers
+	setInterval(updateTweets, 6000); // interval to update tweets from node stream
+	setInterval(queryWeather, 6000); // interval to update picture 6 weather info
+	setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
 }
-});
-});
-*/
-
-// Image One: Data Source = Sound Data Server
-updateSoundData();
-
-// Image Two: Data Source = ???
-setBGColor('image2', randColor());
-setMGColor('image2', randColor());
-setFGColor('image2', randColor());
-
-// Image Three: Data Source = ???
-setBGColor('image3', randColor());
-setMGColor('image3', randColor());
-setFGColor('image3', randColor());
-
-// Image Four: Data Source = ???
-setBGColor('image4', randColor());
-setMGColor('image4', randColor());
-setFGColor('image4', randColor());
-
-// Image Five: Data Source = ???
-setBGColor('image5', randColor());
-setMGColor('image5', randColor());
-setFGColor('image5', randColor());
-
-// Image Six: Data Source = Weather
-queryWeather();
-
-// Start update timers
-setInterval(updateTweets, 6000); // interval to update tweets from node stream
-setInterval(queryWeather, 6000); // interval to update picture 6 weather info
-setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
 
 
 /********************/
