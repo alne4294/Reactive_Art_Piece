@@ -3,6 +3,28 @@
 		 width="262.000000pt" height="333.000000pt" viewBox="0 0 600.000000 686.000000"
 		 preserveAspectRatio="none" id="FG">
 
+		<defs>
+			<style type="text/css"><![CDATA[
+				text.label {
+					fill:   #FFFFFF;
+					font-size: 25px; 
+					font-family: "Courier New";
+					-ms-transform: translate(20px,20px); /* IE 9 */
+					-webkit-transform: translate(20px,20px); /* Safari and Chrome */
+					-o-transform: translate(20px,20px); /* Opera */
+					-moz-transform: translate(20px,20px); /* Firefox */
+				}
+				rect.label_background {
+					fill:   #000000;
+					fill-opacity: 0.5;
+					-ms-transform: translate(6px,6px); /* IE 9 */
+					-webkit-transform: translate(6px,6px); /* Safari and Chrome */
+					-o-transform: translate(6px,6px); /* Opera */
+					-moz-transform: translate(6px,6px); /* Firefox */
+				}
+			]]></style>
+		</defs>
+
 			<!-- BEGIN MIDDLE GROUND -->
 			<g transform="translate(0.000000,761.000000) scale(0.230000,-0.230000)"
 				fill="#000000" stroke="none" id="MG">
@@ -133,6 +155,6 @@
 				-3000 0 -3000 0 0 -3185z"/>
 			</g> <!-- END BACKGROUND -->
 
-			<rect class="label_background" width="188.0pt" height="10.0pt" />
-			<text class="label" id="labelText"></text>
+			<rect class="label_background" width="188.0pt" height="20.0pt" />
+			<text class="label" id="labelText">something</text>
 		</svg>
