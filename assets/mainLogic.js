@@ -4,6 +4,11 @@
  var sum2 = 0;
 
 /* Function declarations */
+
+function setLabelText(image, text) {
+	document.getElementById(image).contentDocument.getElementById('labelText').textContent = text;
+}
+
 function setBGColor(image, color) {
 	document.getElementById(image).contentDocument.getElementById('BG').style.fill = color;
 }
@@ -179,9 +184,12 @@ function queryWeather() {
 			var temperature = parsed_json['current_observation']['temp_f'];
 			var windDirection = parsed_json['current_observation']['wind_degrees'];
 
+			var string = "Temperature of Boulder: " + temperature + " degF";
+
 			setFGColor('image6', windColor(windSpeed));
 			setBGColor('image6', tempColor(temperature));
 			setMGColor('image6', windDirectionColor(windDirection));
+			setLabelText('image6', string);
 		}
 	});
 }
