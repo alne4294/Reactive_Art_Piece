@@ -157,11 +157,11 @@ setFGColor('FG1', frequency2Color(sum2));
 
   	updateSoundData();
 // Image Two: Data Source = ???
+
 setBGColor('BG2', randColor());
 setMGColor('MG2', randColor());
 setFGColor('FG2', randColor());
 
-// Image One: Data Source = ???
 setBGColor('BG3', randColor());
 setMGColor('MG3', randColor());
 setFGColor('FG3', randColor());
@@ -178,7 +178,6 @@ setFGColor('FG5', randColor());
 
 // Image Six: Data Source = Weather
 queryWeather();
-
 
 // Start update timers
 setInterval(updateTweets, 6000); // interval to update tweets from node stream
