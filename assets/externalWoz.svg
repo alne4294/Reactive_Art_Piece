@@ -7,12 +7,13 @@
 			<style type="text/css"><![CDATA[
 				text.label {
 					fill:   #FFFFFF;
-					font-size: 25px; 
+					font-size: 25px;
+					font-weight: bold;
 					font-family: "Courier New";
-					-ms-transform: translate(20px,20px); /* IE 9 */
-					-webkit-transform: translate(20px,20px); /* Safari and Chrome */
-					-o-transform: translate(20px,20px); /* Opera */
-					-moz-transform: translate(20px,20px); /* Firefox */
+					-ms-transform: translate(15px,25px); /* IE 9 */
+					-webkit-transform: translate(15px,25px); /* Safari and Chrome */
+					-o-transform: translate(15px,25px); /* Opera */
+					-moz-transform: translate(15px,25px); /* Firefox */
 				}
 				rect.label_background {
 					fill:   #000000;
@@ -106,7 +107,7 @@
 
 			<!-- BEGIN BACKGROUND -->
 			<g transform="translate(0.000000,686.000000) scale(0.100000,-0.100000)"
-				fill="#000000" stroke="none" id="BG">
+				fill="#888888" stroke="none" id="BG">
 				<path d="M0 3675 c0 -1953 4 -3185 9 -3185 12 0 41 28 41 39 0 15 172 182 196
 				192 13 4 24 15 24 22 0 22 135 77 187 77 12 0 23 4 25 8 4 10 113 68 147 77
 				14 4 33 15 44 25 10 10 40 21 65 25 51 8 122 40 122 55 0 6 6 10 14 10 29 0
@@ -155,6 +156,6 @@
 				-3000 0 -3000 0 0 -3185z"/>
 			</g> <!-- END BACKGROUND -->
 
-			<rect class="label_background" width="188.0pt" height="20.0pt" />
-			<text class="label" id="labelText">something</text>
+			<rect class="label_background" width="425.0pt" height="20.0pt" />
+			<text class="label" id="labelText">Loading data...</text>
 		</svg>

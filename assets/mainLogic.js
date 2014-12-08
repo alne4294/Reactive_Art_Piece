@@ -1,7 +1,4 @@
 /*Variable Definitions*/
- var frequencies = JSON.parse(sounds);
- var sum = 0;
- var sum2 = 0;
 
 /* Function declarations */
 
@@ -115,20 +112,6 @@ function windDirectionColor(number) {
 /************************/
 
 window.onload = function() {
-	var frequencies = JSON.parse(sounds);
-
-	for(i = 0; i < 4; i++) {
-	    sum = sum + frequencies[i];
-	} 
-	sum = sum/ 4;
-
-	// Averaging the sound frequencies of buckets 5-8
-
-	for(i = 4; i < 8; i++) {
-	    sum2 = sum2 + frequencies[i];
-	} 
-	sum2 = sum2 / 4;
-
 	// Image One: Data Source = Sound Data Server
 	updateSoundData();
 
@@ -167,11 +150,29 @@ window.onload = function() {
 /********************/
 
 function updateSoundData() {
-	$.get( '/', function( sound ) {
-		//console.log(sound);
+	var sum = 0;
+	var sum2 = 0;
+
+	$.get( 'sound', function( data ) {
+		var frequencies = data['frequencies'];
+		var volume = data['volume'];
+
+		for(i = 0; i < 4; i++) {
+		    sum = sum + frequencies[i];
+		} 
+		sum = sum/ 4;
+
+		// Averaging the sound frequencies of buckets 5-8
+
+		for(i = 4; i < 8; i++) {
+		    sum2 = sum2 + frequencies[i];
+		} 
+		sum2 = sum2 / 4;
+		
 		setBGColor('image1', volumeColor(data));
 		setMGColor('image1', frequency1Color(sum));
 		setFGColor('image1', frequency2Color(sum2));
+		setLabelText('image1', "> Volume of ATLAS: " + Math.round(volume*100));
 	});
 } 
 
@@ -184,7 +185,7 @@ function queryWeather() {
 			var temperature = parsed_json['current_observation']['temp_f'];
 			var windDirection = parsed_json['current_observation']['wind_degrees'];
 
-			var string = "Temperature of Boulder: " + temperature + " degF";
+			var string = " > Temperature of Boulder: " + temperature + " degF";
 
 			setFGColor('image6', windColor(windSpeed));
 			setBGColor('image6', tempColor(temperature));
