@@ -188,9 +188,11 @@ function queryWeather() {
 
 function updateTweets() {
 	$.get( "twitter", function( data ) {
-		console.log(data);
-  		var tweets = data;
+		var tweets = data;
   		console.log("number of tweets: " + tweets.length);
+  		if (tweets.length > 0) {
+  			console.log(data);
+  		}
   	});
 }
 
