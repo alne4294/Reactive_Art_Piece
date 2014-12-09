@@ -115,7 +115,7 @@ window.onload = function() {
 	// Image One: Data Source = Sound Data Server
 	updateSoundData();
 
-	// Image Two: Data Source = ???
+	// Image Two: Data Source = josh's shit
 	setBGColor('image2', randColor());
 	setMGColor('image2', randColor());
 	setFGColor('image2', randColor());
