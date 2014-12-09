@@ -149,27 +149,27 @@ function updateReddit() {
   		
   		var colornumComments = d3.scale.linear()
 	    .domain([0, 30])
-	    .range(["red", "green"]);
+	    .range(["#E3037D", "#7FB9F8"]);
 
 	    var colorUps = d3.scale.linear()
 	    .domain([0, 3000])
-	    .range(["red", "green"]);
+	    .range(["#7FB9F8", "#E3037D"]);
 
 	    var colorDowns = d3.scale.linear()
 	    .domain([0, 50])
-	    .range(["red", "green"]);
+	    .range(["#E3037D", "green"]);
 
 	    var colorCountApple = d3.scale.linear()
 	    .domain([ 0, 30])
-	    .range(["red", "green"]);
+	    .range(["#7FB9F8", "#F1740F"]);
 
 	    var colorCountWoz = d3.scale.linear()
 	    .domain([0, 10])
-	    .range(["red", "purple"]);
+	    .range(["#7FB9F8", "purple"]);
 
 	    var colorCountMoney = d3.scale.linear()
 	    .domain([0, 3])
-	    .range(["red", "blue"]);
+	    .range(["#E3037D", "blue"]);
 
 	    console.log("color"+colornumComments);
 
