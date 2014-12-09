@@ -120,16 +120,6 @@ window.onload = function() {
 	setMGColor('image2', randColor());
 	setFGColor('image2', randColor());
 
-	// Image Three: Data Source = ???
-	setBGColor('image3', randColor());
-	setMGColor('image3', randColor());
-	setFGColor('image3', randColor());
-
-	// Image Four: Data Source = ???
-	setBGColor('image4', randColor());
-	setMGColor('image4', randColor());
-	setFGColor('image4', randColor());
-
 	// Image Five: Data Source = ???
 	setBGColor('image5', randColor());
 	setMGColor('image5', randColor());
@@ -138,16 +128,38 @@ window.onload = function() {
 	// Image Six: Data Source = Weather
 	queryWeather();
 
+	updateReddit();
+
 	// Start update timers
 	setInterval(updateTweets, 6000); // interval to update tweets from node stream
 	setInterval(queryWeather, 6000); // interval to update picture 6 weather info
 	setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
+	setInterval(updateReddit, 6000); // interval to update picture 3 from Reddit API
 }
 
 
 /********************/
 /* Update functions */
 /********************/
+
+function updateReddit() {
+	$.get( "reddit", function( data ) {
+		var reddit = data;
+  		console.log("number of reddit: " + reddit.ups);
+
+		setBGColor('image3', reddit.numComments);
+		setMGColor('image3', reddit.ups);
+		setFGColor('image3', reddit.downs);
+		setLabelText('image3', "> Score: " + reddit.numComments);
+
+		setBGColor('image4', reddit.countApple);
+		setMGColor('image4', reddit.countWoz);
+		setFGColor('image4', reddit.countMoney);
+		setLabelText('image4', "> Reddit: " + reddit.title);
+
+		console.log(data);
+	});	
+} 
 
 function updateSoundData() {
 	var sum = 0;

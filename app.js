@@ -2,12 +2,20 @@
 var express = require('express');
 var mongo = require('mongoskin');
 var Stream = require('user-stream');
+var	reddit = require('redwrap');
 // Set up variables here
 var serverPort = 8000;
 var server = express();
 var page;
 var tweets = [];
 var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
+var countApple = 0;
+var countWoz = 0;
+var countMoney = 0;
+var numComments = 0;
+var downs = 0;
+var ups = 0;
+var title = "";
 
 // Set up the server
 server.engine('.html', require('ejs').__express);
@@ -25,6 +33,43 @@ var stream = new Stream({
 var params = {track: 'cu boulder'};
 stream.stream(params);
 
+reddit.r('Apple', function(err, data, res){
+	title = data.data.children[0].data.title; //outputs object representing first page of Apple subreddit
+
+	//Image 3 vals
+	countApple = 0;
+	countWoz = 0;
+	countMoney = 0;
+	for (var i = 0; i<data.data.children.length; i++){
+		var selftext = data.data.children[i].data.selftext.toLowerCase();
+		if (selftext.indexOf('apple') > -1){
+			countApple += 1;
+		}
+		if (selftext.indexOf('wozniak') > -1 || selftext.indexOf('woz') > -1){
+			countWoz += 1;
+		}
+		if (selftext.indexOf('money') > -1){
+			countMoney += 1;
+		}
+	}
+	console.log(countApple);
+	console.log(countWoz);
+	console.log(countMoney);
+
+	// Image 4 vals
+	numComments = 0;
+	downs = 0;
+	ups = 0;
+	for (var i = 0; i<data.data.children.length; i++){
+		numComments += data.data.children[i].data.num_comments;
+		downs += data.data.children[i].data.downs;
+		ups += data.data.children[i].data.ups;
+	}
+	console.log(numComments);
+	console.log(downs);
+	console.log(ups);
+});
+
 stream.on('data', function(json) {
 	tweets.push(json);
 	console.log(json);
@@ -37,6 +82,20 @@ server.get('/', function(req, res) {
 
 server.get('/twitter', function(req, res) {
 	res.send(tweets);
+});
+
+server.get('/reddit', function(req, res){
+	var reddit_data = 
+	{
+		"countApple":countApple, 
+		"countWoz":countWoz,
+		"countMoney":countMoney,
+		"numComments":numComments,
+		"downs":downs,
+		"ups":ups,
+		"title":title,
+	}
+	res.send(reddit_data);
 });
 
 server.get('/sound', function(req, res) {
