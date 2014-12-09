@@ -185,11 +185,6 @@ function updateReddit() {
 
 		console.log(data);
 	});	
-
-
-
-
-
 } 
 
 function updateSoundData() {
