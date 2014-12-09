@@ -146,19 +146,50 @@ function updateReddit() {
 	$.get( "reddit", function( data ) {
 		var reddit = data;
   		console.log("number of reddit: " + reddit.ups);
+  		
+  		var colornumComments = d3.scale.linear()
+	    .domain([0, 30])
+	    .range(["red", "green"]);
 
-		setBGColor('image3', reddit.numComments);
-		setMGColor('image3', reddit.ups);
-		setFGColor('image3', reddit.downs);
+	    var colorUps = d3.scale.linear()
+	    .domain([0, 3000])
+	    .range(["red", "green"]);
+
+	    var colorDowns = d3.scale.linear()
+	    .domain([0, 50])
+	    .range(["red", "green"]);
+
+	    var colorCountApple = d3.scale.linear()
+	    .domain([ 0, 30])
+	    .range(["red", "green"]);
+
+	    var colorCountWoz = d3.scale.linear()
+	    .domain([0, 10])
+	    .range(["red", "purple"]);
+
+	    var colorCountMoney = d3.scale.linear()
+	    .domain([0, 3])
+	    .range(["red", "blue"]);
+
+	    console.log("color"+colornumComments);
+
+		setBGColor('image3', colornumComments(reddit.numComments));
+		setMGColor('image3', colorUps(reddit.ups));
+		setFGColor('image3', colorDowns(reddit.downs));
 		setLabelText('image3', "> Score: " + reddit.numComments);
 
-		setBGColor('image4', reddit.countApple);
-		setMGColor('image4', reddit.countWoz);
-		setFGColor('image4', reddit.countMoney);
+		setBGColor('image4', colorCountApple(reddit.countApple));
+		setMGColor('image4', colorCountWoz(reddit.countWoz));
+		setFGColor('image4', colorCountMoney(reddit.countMoney));
 		setLabelText('image4', "> Reddit: " + reddit.title);
 
 		console.log(data);
 	});	
+
+
+
+
+
 } 
 
 function updateSoundData() {
