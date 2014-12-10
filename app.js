@@ -3,6 +3,9 @@ var express = require('express');
 var mongo = require('mongoskin');
 var Stream = require('user-stream');
 var	reddit = require('redwrap');
+var parse = require('csv-parse');
+
+
 // Set up variables here
 var serverPort = 8000;
 var server = express();
@@ -77,6 +80,12 @@ stream.on('data', function(json) {
 
 server.get('/', function(req, res) {
 	res.render("index.html");
+});
+
+//Image 5 (stock)
+var input = 'http://finance.yahoo.com/d/quotes.csv?s=AAPL&f=l1&e=.csv"';
+parse(input, {comment: '#'}, function(err, output){
+  output.should.eql([ [ '1', '2', '3', '4' ], [ 'a', 'b', 'c', 'd' ] ]);
 });
 
 
