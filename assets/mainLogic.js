@@ -1,4 +1,8 @@
 /*Variable Definitions*/
+var lastText = 0;
+var windSpeed;
+var temperature;
+var windDirString;
 
 /* Function declarations */
 
@@ -170,11 +174,12 @@ window.onload = function() {
 
 	// Start update timers
 	setInterval(updateTweets, 6000); // interval to update tweets from node stream
-	setInterval(queryWeather, 6000); // interval to update picture 6 weather info
+	setInterval(queryWeather, 12000); // interval to update picture 6 weather info
+	setInterval(breckWeather, 12000); // daniel's stuff
 	setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
 	setInterval(updateReddit, 6000); // interval to update picture 3 from Reddit API
+	setInterval(updateLabels, 3000);
 }
-
 
 /********************/
 /* Update functions */
@@ -200,7 +205,6 @@ function updateReddit() {
 	    var colorCountApple = d3.scale.linear()
 	    .domain([ 0, 30])
 	    .range(["#7FB9F8", "#F1740F"]);
-
 	    var colorCountWoz = d3.scale.linear()
 	    .domain([0, 10])
 	    .range(["#7FB9F8", "purple"]);
@@ -273,23 +277,37 @@ function breckWeather() {
 	});
 }
 
+function updateLabels() {
+	if (lastText == 0) {
+		string = " > Boulder's Temp: " + temperature + " degF";
+	} else if (lastText == 1) {
+		string = " > Wind Speed: " + windSpeed + " mph";
+	} else {
+		string = " > Wind Direction: " + windDirString;
+	}
+
+	lastText = (lastText + 1) % 3;
+	setLabelText('image6', string);
+}
+
 function queryWeather() {
 	$.ajax({
 		url : "http://api.wunderground.com/api/431bf54052c58a0a/geolookup/conditions/q/CO/Boulder.json",
 		dataType : "jsonp",
 		success : function(parsed_json) {
-			var windSpeed = parsed_json['current_observation']['wind_mph'];
-			var temperature = parsed_json['current_observation']['temp_f'];
-			var windDirection = parsed_json['current_observation']['wind_degrees'];
-
-			var string = " > Temperature of Boulder: " + temperature + " degF";
+			windSpeed = parsed_json['current_observation']['wind_mph'];
+			temperature = parsed_json['current_observation']['temp_f'];
+			windDirection = parsed_json['current_observation']['wind_degrees'];
+			windDirString = parsed_json['current_observation']['wind_dir'];
 
 			setFGColor('image6', windColor(windSpeed));
 			setBGColor('image6', tempColor(temperature));
 			setMGColor('image6', windDirectionColor(windDirection));
-			setLabelText('image6', string);
+			
 		}
 	});
+
+	
 }
 
 function updateTweets() {
