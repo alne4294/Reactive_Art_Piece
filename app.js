@@ -83,11 +83,6 @@ server.get('/', function(req, res) {
 });
 
 //Image 5 (stock)
-var input = 'http://finance.yahoo.com/d/quotes.csv?s=AAPL&f=l1&e=.csv"';
-parse(input, {comment: '#'}, function(err, output){
-  output.should.eql([ [ '1', '2', '3', '4' ], [ 'a', 'b', 'c', 'd' ] ]);
-});
-
 
 server.get('/twitter', function(req, res) {
 	res.send(tweets);
