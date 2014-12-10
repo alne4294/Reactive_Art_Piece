@@ -128,13 +128,13 @@ function windGustColor(number) {
 		"overcast": #
 		"snow": #};
 				
-}*/
+}
 
 	
 	return weather_color;
-}
+}*/
 
-function hrPrecip(number) {
+function hrPrecipColor(number) {
 	value = Math.round(number);
 	var scale = d3.scale.linear().domain([0,72]).range([0,255]);
 
@@ -160,7 +160,7 @@ window.onload = function() {
 	setMGColor('image2', randColor());
 	setFGColor('image2', randColor());
 
-	// Image Five: Data Source = ???
+	// Image Five: Data Source = WUndergroud
 	breckWeather();
 
 	// Image Six: Data Source = Weather
@@ -263,11 +263,11 @@ function breckWeather() {
 			var icon = parsed_json['current_observation']['icon'];
 			var hrPrecip = parsed_json['current_observation']['precip_1hr_in'];
 
-			var string = " > Forecast in Breckenridge: " + icon;
+			var string = " > Forecast in Breckenridge: " + windGustMph;
 
 			setFGColor('image5', windGustColor(windGustMph));
-			setBGColor('image5', iconColor(icon));
-			setMGColor('image5', randColor());
+			setBGColor('image5', randColor());
+			setMGColor('image5', hrPrecipColor(hrPrecip));
 			setLabelText('image5', string);
 		}
 	});
