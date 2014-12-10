@@ -83,11 +83,12 @@ server.get('/', function(req, res) {
 });
 
 //Image 5 (stock)
-$.get("stocks.php",{param:value},callbackFunction);
+
+/*$.get("stocks.php",{param:value},callbackFunction);
 callbackFunction(data)
 {
 alert(data);
-}
+} */
 
 
 server.get('/twitter', function(req, res) {
