@@ -195,19 +195,21 @@ function updateSoundData() {
 		var frequencies = data['frequencies'];
 		var volume = data['volume'];
 
-		for(i = 0; i < 4; i++) {
+		// Averaging the sound frequencies of buckets 1-9
+
+		for(i = 0; i < 9; i++) {
 		    sum = sum + frequencies[i];
 		} 
-		sum = sum/ 4;
+		sum = sum/ 9;
 
-		// Averaging the sound frequencies of buckets 5-8
+		// Averaging the sound frequencies of buckets 10-18
 
-		for(i = 4; i < 8; i++) {
+		for(i = 9; i < 18; i++) {
 		    sum2 = sum2 + frequencies[i];
 		} 
-		sum2 = sum2 / 4;
+		sum2 = sum2 / 9;
 		
-		setBGColor('image1', volumeColor(data));
+		setBGColor('image1', volumeColor(volume));
 		setMGColor('image1', frequency1Color(sum));
 		setFGColor('image1', frequency2Color(sum2));
 		setLabelText('image1', "> Volume of ATLAS: " + Math.round(volume*100));

@@ -8,7 +8,7 @@ var serverPort = 8000;
 var server = express();
 var page;
 var tweets = [];
-var db = mongo.db("mongodb://readuser:ReadUserPassword@ds051980.mongolab.com:51980/soundtest", {native_parser:true});
+var db = mongo.db("mongodb://readuser:ReadUserPassword@104.236.60.203:27018/sound", {native_parser:true});
 var countApple = 0;
 var countWoz = 0;
 var countMoney = 0;
@@ -99,7 +99,7 @@ server.get('/reddit', function(req, res){
 });
 
 server.get('/sound', function(req, res) {
-	db.collection('noise').find({},{"sort" : ['date', 'dsc']}).limit(1).toArray(function(err, result) {
+	db.collection('noise').find({"location": "microphone" },{"sort" : ['date', 'dsc']}).limit(1).toArray(function(err, result) {
 		var volume = result[0]['noise']['level'];
 		var frequency = result[0]['frequency']['values'];
 		res.send({volume: volume, frequencies: frequency});
