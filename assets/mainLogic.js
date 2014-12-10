@@ -19,7 +19,7 @@ function setMGColor(image, color) {
 }
 
 function setFGColor(image, color) {
-	document.getElementById(image).contentDocument.getElementById('FG').style.background = color;
+	document.getElementById(image).contentDocument.getElementById('FG').style.fill = color;
 }
 
 function randColor() {
@@ -28,6 +28,27 @@ function randColor() {
 
 function rgbString(redValue, greenValue, blueValue) {
 	return 'rgb(' + redValue + ',' + greenValue + ',' + blueValue + ')';
+}
+
+function changeImage(image) {
+	document.getElementById('image1').data = image;
+	document.getElementById('image2').data = image;
+	document.getElementById('image3').data = image;
+	document.getElementById('image4').data = image;
+	document.getElementById('image5').data = image;
+	document.getElementById('image6').data = image;
+
+	updateSoundData(); // Image One: Data Source = Sound Data Server
+
+	// Image Two: Data Source = josh's shit
+	setBGColor('image2', randColor());
+	setMGColor('image2', randColor());
+	setFGColor('image2', randColor());
+
+	breckWeather(); // Image Five: Data Source = WUndergroud
+	queryWeather(); // Image Six: Data Source = Weather
+	updateReddit(); // Image 3 and 4
+
 }
 
 
@@ -156,21 +177,17 @@ function hrPrecipColor(number) {
 /************************/
 
 window.onload = function() {
-	// Image One: Data Source = Sound Data Server
-	updateSoundData();
+	
+	updateSoundData(); // Image One: Data Source = Sound Data Server
 
 	// Image Two: Data Source = josh's shit
 	setBGColor('image2', randColor());
 	setMGColor('image2', randColor());
 	setFGColor('image2', randColor());
 
-	// Image Five: Data Source = WUndergroud
-	breckWeather();
-
-	// Image Six: Data Source = Weather
-	queryWeather();
-
-	updateReddit();
+	breckWeather(); // Image Five: Data Source = WUndergroud
+	queryWeather(); // Image Six: Data Source = Weather
+	updateReddit(); // Image 3 and 4
 
 	// Start update timers
 	setInterval(updateTweets, 6000); // interval to update tweets from node stream

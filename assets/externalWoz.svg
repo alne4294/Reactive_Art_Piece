@@ -1,7 +1,7 @@
 <!-- ........................ WOZ 1 ........................ -->
 		<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 		 width="262.000000pt" height="333.000000pt" viewBox="0 0 600.000000 686.000000"
-		 preserveAspectRatio="none" id="FG">
+		 preserveAspectRatio="none" >
 
 		<defs>
 			<style type="text/css"><![CDATA[
@@ -26,6 +26,10 @@
 			]]></style>
 		</defs>
 
+						<g id="FG" style="fill:rgb(255,255,255)">
+			<rect width="600pt" height="686.000000pt" />
+		</g>
+		
 			<!-- BEGIN MIDDLE GROUND -->
 			<g transform="translate(0.000000,761.000000) scale(0.230000,-0.230000)"
 				fill="#000000" stroke="none" id="MG">
@@ -105,6 +109,8 @@
 				7 -14 15 0 8 -14 22 -30 30 -31 16 -141 28 -172 19z"/>
 			</g> <!-- END MIDDLEGROUND -->
 
+
+
 			<!-- BEGIN BACKGROUND -->
 			<g transform="translate(0.000000,686.000000) scale(0.100000,-0.100000)"
 				fill="#888888" stroke="none" id="BG">
@@ -155,6 +161,7 @@
 				-17 52 -23 24 -7 50 -24 68 -46 19 -23 43 -39 66 -44 l36 -8 0 2689 0 2689
 				-3000 0 -3000 0 0 -3185z"/>
 			</g> <!-- END BACKGROUND -->
+
 
 			<rect class="label_background" width="425.0pt" height="20.0pt" />
 			<text class="label" id="labelText">Loading data...</text>
