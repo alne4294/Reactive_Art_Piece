@@ -216,7 +216,7 @@ function updateSoundData() {
 
 function queryWeather() {
 	$.ajax({
-		url : "http://api.wunderground.com/api/bee95dd5ac38cd3e/geolookup/conditions/q/CO/Boulder.json",
+		url : "http://api.wunderground.com/api/2f48e8646549e88f/geolookup/conditions/q/CO/Boulder.json",
 		dataType : "jsonp",
 		success : function(parsed_json) {
 			var windSpeed = parsed_json['current_observation']['wind_mph'];
