@@ -4,6 +4,19 @@
 		<script type="text/javascript" src="assets/ejs_production.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+		<?php
+    
+    $format = "l1v";
+	$s = file_get_contents("http://finance.yahoo.com/d/quotes.csv?s=AAPL&f=$format&e=.csv");
+	$data = explode(",", $s);
+   
+   print $data[0];
+   print ' ';
+   print $data[1];
+
+   echo json_encode($data[0],$data[1]);
+	
+?>
 		
 		<object data="assets/externalWoz.svg" type="image/svg+xml" id="image1"></object>
 		<object data="assets/externalWoz.svg" type="image/svg+xml" id="image2"></object>

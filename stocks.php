@@ -1,38 +1,44 @@
-<?php
-
-
+Apple Stock
+/////////////////////////////////////////
+    <?php
     
+    <?php
+while(1){
     $format = "l1v";
-	$s = file_get_contents("http://finance.yahoo.com/d/quotes.csv?s=AAPL&f=$format&e=.csv");
+	$s = file_get_contents("http://finance.yahoo.com/d/quotes.csv?s=$stock&f=$format&e=.csv");
 	$data = explode(",", $s);
-   
-   print $data[0];
-   print ' ';
-   print $data[1];
-
-   echo json_encode($data[0],$data[1]);
-	/* MONGODB CODE
-	// access database
-	$db = $conn->test;
-
-	// access collection
-	$collection = $db->items2;
-    
-    $collection->insert($data);
-    */        
-    //fputcsv($file, $data);
-
-
-/*function MongoConnect($username, $password, $database, $host) {
-    $con = new Mongo("mongodb://{$username}:{$password}@{$host}"); // Connect to Mongo Server
-    $db = $con->selectDB($database); // Connect to Database
-    // access collection
-
-$collection = $db->Collection;
-$collection->insert($myjson)*/
-
-
-    
-
-//$db->close();
+    $price = $data[0];
+    $volume = $data[1];
+    usleep(60000);
+    $format = "l1v";
+	$s = file_get_contents("http://finance.yahoo.com/d/quotes.csv?s=$stock&f=$format&e=.csv");
+	$data = explode(",", $s);
+	$price1 = $data[0];
+	$volume1 = $data[1];
+ 
+	$pricediff = $price1 - $price;
+	$volumediff = $volume1 - $volume;
+ 
+	// Create connection
+	$db = new mysqli('localhost', 'root', '123456789', 'applestock');
+	// Check connection
+ 
+	if ($db->connect_errno) {
+		die("Connection failed: " . $db->connect_error);
+	} 
+ 
+ 
+	$sql = "INSERT INTO applestock (pricediff, volumediff)
+	VALUES ($pricediff, $volumediff)";
+ 
+	if ($db->query($sql)) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . $db->error;
+	}
+ 
+ 
+ 
+}
+$db->close();
 ?>
