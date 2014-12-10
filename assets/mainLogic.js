@@ -107,6 +107,46 @@ function windDirectionColor(number) {
 	return color;
 }
 
+function windGustColor(number) {
+	value = Math.round(number);
+	var scale = d3.scale.linear().domain([0, 60]).range([0, 255]);
+
+	var redValue = 0;
+	var blueValue = 150 + redValue;
+	var greenValue = Math.round(scale(value));
+		if (redValue > 255) redValue = 255;
+
+	var color = rgbString(redValue, blueValue, greenValue);
+	console.log("windGustColor = " + color);
+	return color;
+}
+
+/*function iconColor(number) {
+	value = Math.round(number);
+	var weather_color = 
+		{"clear": #FF0089,
+		"overcast": #
+		"snow": #};
+				
+}*/
+
+	
+	return weather_color;
+}
+
+function hrPrecip(number) {
+	value = Math.round(number);
+	var scale = d3.scale.linear().domain([0,72]).range([0,255]);
+
+	var redValue = Math.round(scale(value));
+		if (redValue > 255) redValue = 255;;
+	var blueValue = 0;
+	var greenValue = 100;
+
+	var color = rgbString(redValue, blueValue, greenValue);
+	console.log("hrPrecipColor = " + color);
+	return color;
+}
 /************************/
 /* BEGIN CODE THAT RUNS */
 /************************/
@@ -121,9 +161,7 @@ window.onload = function() {
 	setFGColor('image2', randColor());
 
 	// Image Five: Data Source = ???
-	setBGColor('image5', randColor());
-	setMGColor('image5', randColor());
-	setFGColor('image5', randColor());
+	breckWeather();
 
 	// Image Six: Data Source = Weather
 	queryWeather();
@@ -216,9 +254,28 @@ function updateSoundData() {
 	});
 } 
 
+function breckWeather() {
+	$.ajax({
+		url : "http://api.wunderground.com/api/431bf54052c58a0a/geolookup/conditions/q/CO/Breckenridge.json",
+		dataType : "jsonp",
+		success : function(parsed_json) {
+			var windGustMph = parsed_json['current_observation']['wind_gust_mph'];
+			var icon = parsed_json['current_observation']['icon'];
+			var hrPrecip = parsed_json['current_observation']['precip_1hr_in'];
+
+			var string = " > Forecast in Breckenridge: " + icon;
+
+			setFGColor('image5', windGustColor(windGustMph));
+			setBGColor('image5', iconColor(icon));
+			setMGColor('image5', randColor());
+			setLabelText('image5', string);
+		}
+	});
+}
+
 function queryWeather() {
 	$.ajax({
-		url : "http://api.wunderground.com/api/2f48e8646549e88f/geolookup/conditions/q/CO/Boulder.json",
+		url : "http://api.wunderground.com/api/431bf54052c58a0a/geolookup/conditions/q/CO/Boulder.json",
 		dataType : "jsonp",
 		success : function(parsed_json) {
 			var windSpeed = parsed_json['current_observation']['wind_mph'];
