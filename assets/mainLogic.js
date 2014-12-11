@@ -3,7 +3,7 @@ var lastText = 0;
 var windSpeed;
 var temperature;
 var windDirString;
-
+var oldTweets = 0
 /* Function declarations */
 
 function setLabelText(image, text) {
@@ -48,6 +48,7 @@ function changeImage(image) {
 	breckWeather(); // Image Five: Data Source = WUndergroud
 	queryWeather(); // Image Six: Data Source = Weather
 	updateReddit(); // Image 3 and 4
+	updateTweets();// image 2 twittz
 
 }
 
@@ -181,16 +182,14 @@ window.onload = function() {
 	updateSoundData(); // Image One: Data Source = Sound Data Server
 
 	// Image Two: Data Source = josh's shit
-	setBGColor('image2', randColor());
-	setMGColor('image2', randColor());
-	setFGColor('image2', randColor());
+
 
 	breckWeather(); // Image Five: Data Source = WUndergroud
 	queryWeather(); // Image Six: Data Source = Weather
 	updateReddit(); // Image 3 and 4
-
+	updateTweets();// image 2 twittz
 	// Start update timers
-	setInterval(updateTweets, 6000); // interval to update tweets from node stream
+	setInterval(updateTweets, 600000); // interval to update tweets from node stream
 	setInterval(queryWeather, 12000); // interval to update picture 6 weather info
 	setInterval(breckWeather, 12000); // daniel's stuff
 	setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
@@ -329,11 +328,28 @@ function queryWeather() {
 
 function updateTweets() {
 	$.get( "twitter", function( data ) {
-		var tweets = data;
-  		console.log("number of tweets: " + tweets.length);
-  		if (tweets.length > 0) {
-  			console.log(data);
-  		}
+		tweets = data;
+  		var delta = oldTweets - tweets.length;
+  		console.log('heresdelta'+delta)
+ 		var colorTweets = d3.scale.linear()
+	    .domain([0, 20])
+	    .range(["#23B9F8", "#E3037D"]);
+
+	    var colorTweets2 = d3.scale.linear()
+	    .domain([0, 20])
+	    .range(["#2F12F8", "#E2035D"]);
+  		
+  		var colorTweets3 = d3.scale.linear()
+	    .domain([0, 20])
+	    .range(["#7FB9F8", "#E3037D"]);
+
+
+	    setFGColor('image2', colorTweets(delta));
+		setBGColor('image2', colorTweets2(delta));
+		setMGColor('image2', colorTweets3(delta));
+		setLabelText('image2', " > Number of Tweets about CU Boulder:"+delta);
+
+
   	});
 }
 
