@@ -3,7 +3,7 @@ var express = require('express');
 var mongo = require('mongoskin');
 var Stream = require('user-stream');
 var	reddit = require('redwrap');
-var parse = require('csv-parse');
+var mysql  = require('mysql');
 
 
 // Set up variables here
@@ -19,6 +19,8 @@ var numComments = 0;
 var downs = 0;
 var ups = 0;
 var title = "";
+var price_change = 0;
+var volume_change = 0;
 
 // Set up the server
 server.engine('.html', require('ejs').__express);
@@ -117,6 +119,24 @@ server.get('/sound', function(req, res) {
 	});
 });
 
+server.get('/stocks', function(req, res) {
+var connection = mysql.createConnection({
+  host     : '104.131.29.34',
+  user     : 'ian',
+  password : 'mypasswd',
+  database : 'applestock',
+});
+
+connection.connect();
+
+var query = connection.query('SELECT * FROM applestock', function(err, result) {
+  // Neat!
+  price_change = result[0]["pricediff"];
+  volume_change = result[0]["volumediff"];
+  res.send({price_change: price_change, volume_change: volume_change});
+});
+
+});
 
 // Start the server
 server.listen(serverPort);

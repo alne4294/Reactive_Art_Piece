@@ -3,7 +3,9 @@ var lastText = 0;
 var windSpeed;
 var temperature;
 var windDirString;
-var oldTweets = 0
+var oldTweets = 0;
+var stock_price_string = '';
+var stock_volume_string = '';
 /* Function declarations */
 
 function setLabelText(image, text) {
@@ -195,6 +197,7 @@ window.onload = function() {
 	setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
 	setInterval(updateReddit, 6000); // interval to update picture 3 from Reddit API
 	setInterval(updateLabels, 3000);
+	setInterval(updateStockData, 3000);
 }
 
 /********************/
@@ -270,7 +273,36 @@ function updateSoundData() {
 		setBGColor('image1', volumeColor(volume));
 		setMGColor('image1', frequency1Color(sum));
 		setFGColor('image1', frequency2Color(sum2));
-		setLabelText('image1', "> Volume of ATLAS: " + Math.round(volume*100));
+		setLabelText('image1', "> Volume of ATLAS: " +  Math.round(volume*100));
+
+	});
+} 
+
+function updateStockData() {
+	$.get( 'stocks', function( data ) {
+		var pricediff = data['price_change'];
+		var volumediff = data['volume_change'];
+		if (pricediff > 0){
+			stock_price_string = 'Rising';
+
+		} else if (pricediff < 0){
+			stock_price_string = "Falling";
+		}else{
+			stock_price_string = "Steady";
+		} 
+		if (volumediff > 0){
+			stock_volume_string = 'High';
+
+		} else if (volumediff < 0){
+			stock_volume_string = "Low";
+		}else{
+			stock_volume_string = "Steady";
+		} 
+		//setBGColor('image1', volumeColor(volume));
+		//setMGColor('image1', frequency1Color(sum));
+		//setFGColor('image1', frequency2Color(sum2));
+		//setLabelText('image1', "> Volume of ATLAS: " +  Math.round(volume*100));
+
 	});
 } 
 
@@ -288,7 +320,7 @@ function breckWeather() {
 			setFGColor('image5', windGustColor(windGustMph));
 			setBGColor('image5', randColor());
 			setMGColor('image5', hrPrecipColor(hrPrecip));
-			setLabelText('image5', string);
+			//setLabelText('image5', string);
 		}
 	});
 }
@@ -296,8 +328,10 @@ function breckWeather() {
 function updateLabels() {
 	if (lastText == 0) {
 		string = " > Boulder's Temp: " + temperature + " degF";
+		setLabelText('image5', "> Apple Stock: " +  stock_price_string);
 	} else if (lastText == 1) {
 		string = " > Wind Speed: " + windSpeed + " mph";
+		setLabelText('image5', "> Apple Trading: " +  stock_volume_string);
 	} else {
 		string = " > Wind Direction: " + windDirString;
 	}
