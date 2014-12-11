@@ -280,7 +280,6 @@ function updateReddit() {
 	    .domain([0, 3])
 	    .range(["#E3037D", "blue"]);
 
-	    console.log("color"+colornumComments);
 
 		setBGColor('image3', colornumComments(reddit.numComments));
 		setMGColor('image3', colorUps(reddit.ups));
@@ -292,7 +291,6 @@ function updateReddit() {
 		setFGColor('image4', colorCountMoney(reddit.countMoney));
 		setLabelText('image4', "> Reddit: " + reddit.title);
 
-		console.log(data);
 	});	
 } 
 
@@ -431,7 +429,7 @@ function updateTweets() {
 	    setFGColor('image2', colorTweets(delta));
 		setBGColor('image2', colorTweets2(delta));
 		setMGColor('image2', colorTweets3(delta));
-		setLabelText('image2', " > Number of Tweets about CU Boulder:"+delta);
+		setLabelText('image2', " > Number of Tweets about CU Boulder:"+abs(delta);
 
 
   	});

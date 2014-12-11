@@ -106,7 +106,7 @@ server.get('/reddit', function(req, res){
 
 server.get('/sound', function(req, res) {
 	db.collection('noise').find({location: "microphone" }).sort({"date": -1}).limit(1).toArray(function(err, result) {
-		console.log(result);
+		// console.log(result);
 		var volume = result[0]['noise']['level'];
 		var frequency = result[0]['frequency']['values'];
 		res.send({volume: volume, frequencies: frequency});
