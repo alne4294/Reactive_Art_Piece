@@ -237,7 +237,7 @@ window.onload = function() {
 	setInterval(breckWeather, 12000); // daniel's stuff
 	setInterval(updateSoundData, 1000); // interval to update picture 1 from SoundDB
 	setInterval(updateReddit, 6000); // interval to update picture 3 from Reddit API
-	//setInterval(updateLabels, 3000);
+	setInterval(updateLabels, 3000);
 	setInterval(updateStockData, 3000);
 }
 
@@ -361,7 +361,7 @@ function breckWeather() {
 			setFGColor('image6', windGustColor(windGustMph));
 			setBGColor('image6', iconColor(icon));
 			setMGColor('image6', hrPrecipColor(hrPrecip));
-			setLabelText('image6', string);
+			//setLabelText('image6', string);
 		}
 	});
 }
@@ -374,7 +374,7 @@ function updateLabels() {
 		setLabelText('image6'," > Wind Speed: " + windSpeed + " mph");
 		setLabelText('image5', "> Apple Trading: " +  stock_volume_string);
 	} else {
-		setLabelText('image6'," > Wind Direction: " + windDirString;
+		setLabelText('image6'," > Wind Direction: " + windDirString);
 	}
 	lastText = (lastText + 1) % 3;
 }
