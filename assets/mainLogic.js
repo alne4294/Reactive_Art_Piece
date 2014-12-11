@@ -337,8 +337,8 @@ function updateStockData() {
 			stock_volume_string = "Steady";
 		} 
 
-		setFGColor('image5', rgbString(0, 0, 0));
-		setMGColor('image5', priceChangeColor(pricediff));
+		setMGColor('image5', rgbString(0, 0, 0));
+		setFGColor('image5', priceChangeColor(pricediff));
 		setBGColor('image5', volumeChangeColor(volumediff));
 
 
