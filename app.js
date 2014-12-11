@@ -48,7 +48,7 @@ var params = {track: 'cu boulder'};
 stream.stream(params);
 
 reddit.r('Apple', function(err, data, res){
-	title = data.data.children[0].data.title; //outputs object representing first page of Apple subreddit
+	title = data.data.children[1].data.title; //outputs object representing first page of Apple subreddit
 
 	//Image 3 vals
 	countApple = 0;
@@ -108,7 +108,7 @@ server.get('/reddit', function(req, res){
 		"numComments":numComments,
 		"downs":downs,
 		"ups":ups,
-		"title":title,
+		"title":title.substring(0, 26)+"...",
 	}
 	res.send(reddit_data);
 });

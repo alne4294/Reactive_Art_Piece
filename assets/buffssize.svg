@@ -12,10 +12,10 @@
 					font-size: 15pt;
 					font-weight: bold;
 					font-family: "Courier New";
-					-ms-transform: translate(10px,30px); /* IE 9 */
-					-webkit-transform: translate(10px,30px); /* Safari and Chrome */
-					-o-transform: translate(10px,30px); /* Opera */
-					-moz-transform: translate(10px,30px); /* Firefox */
+					-ms-transform: translate(10px,20px); /* IE 9 */
+					-webkit-transform: translate(10px,20px); /* Safari and Chrome */
+					-o-transform: translate(10px,20px); /* Opera */
+					-moz-transform: translate(10px,20px); /* Firefox */
 				}
 				rect.label_background {
 					fill:   #000000;
