@@ -190,7 +190,7 @@ function volumeChangeColor(number){
 function iconColor(string) {
 	var clear = "#189DFB"; 
 	var overcast = "C0C0C0";
-	var snow = #FFFFFF;
+	var snow = "#FFFFFF";
 
 	if (icon = "Clear"){
 		return clear;
@@ -403,10 +403,11 @@ function updateTweets() {
 	$.get( "twitter", function( data ) {
 		tweets = data;
   		var delta = oldTweets - tweets.length;
-  		console.log('heresdelta'+delta)
+  		oldTweets = delta
+		console.log('heresdelta'+delta)
  		var colorTweets = d3.scale.linear()
 	    .domain([0, 20])
-	    .range(["#23B9F8", "#E3037D"]);
+	    .range(["#23B9F8", "#127343"]);
 
 	    var colorTweets2 = d3.scale.linear()
 	    .domain([0, 20])
