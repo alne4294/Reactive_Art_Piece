@@ -318,7 +318,7 @@ function updateSoundData() {
 		setBGColor('image1', volumeColor(volume));
 		setMGColor('image1', frequency1Color(sum));
 		setFGColor('image1', frequency2Color(sum2));
-		setLabelText('image1', "> Volume of ATLAS: " +  Math.round(volume*100));
+		setLabelText('image1', "> Volume of ATLAS: " +  Math.round(volume) + "dB");
 
 	});
 } 
@@ -428,7 +428,7 @@ function updateTweets() {
 	    setFGColor('image2', colorTweets(delta));
 		setBGColor('image2', colorTweets2(delta));
 		setMGColor('image2', colorTweets3(delta));
-		setLabelText('image2', " > Number of Tweets about CU Boulder:"+abs(delta);
+		setLabelText('image2', " > Number of Tweets about CU Boulder:"+abs(delta));
 
 
   	});
