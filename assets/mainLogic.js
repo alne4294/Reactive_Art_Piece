@@ -197,18 +197,24 @@ function volumeChangeColor(number){
 	return rgbString(redValue, greenValue, blueValue);
 
 }
-/*function iconColor(number) {
-	value = Math.round(number);
-	var weather_color = 
-		{"clear": #FF0089,
-		"overcast": #
-		"snow": #};
-				
-}
+function iconColor(string) {
+	var clear = "#189DFB"; 
+	var overcast = #C0C0C0";
+	var snow = #FFFFFF;	
 
+	if (icon = "Clear"){
+		return clear;
+	}	
+	else if(icon = "Overcast"){
+		return overcast;
+	} 
+	else if(icon = "Snow"){
+		return snow;
+	}
 	
-	return weather_color;
-}*/
+	else
+		return randColor();
+}
 
 function hrPrecipColor(number) {
 	value = Math.round(number);
