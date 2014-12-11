@@ -370,10 +370,10 @@ function breckWeather() {
 
 			var string = " > Forecast in Breckenridge: " + windGustMph;
 
-			//setFGColor('image5', windGustColor(windGustMph));
-			//setBGColor('image5', randColor());
-			//setMGColor('image5', hrPrecipColor(hrPrecip));
-			//setLabelText('image5', string);
+			setFGColor('image6', windGustColor(windGustMph));
+			setBGColor('image6', randColor());
+			setMGColor('image6', hrPrecipColor(hrPrecip));
+			setLabelText('image6', string);
 		}
 	});
 }
@@ -403,9 +403,9 @@ function queryWeather() {
 			windDirection = parsed_json['current_observation']['wind_degrees'];
 			windDirString = parsed_json['current_observation']['wind_dir'];
 
-			setFGColor('image6', windColor(windSpeed));
-			setBGColor('image6', tempColor(temperature));
-			setMGColor('image6', windDirectionColor(windDirection));
+			//setFGColor('image6', windColor(windSpeed));
+			//setBGColor('image6', tempColor(temperature));
+			//setMGColor('image6', windDirectionColor(windDirection));
 			
 		}
 	});
