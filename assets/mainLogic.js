@@ -41,19 +41,12 @@ function changeImage(image) {
 	document.getElementById('image6').data = image;
 
 	updateSoundData(); // Image One: Data Source = Sound Data Server
-
-	// Image Two: Data Source = josh's shit
-	setBGColor('image2', randColor());
-	setMGColor('image2', randColor());
-	setFGColor('image2', randColor());
-
 	breckWeather(); // Image Five: Data Source = WUndergroud
 	queryWeather(); // Image Six: Data Source = Weather
 	updateReddit(); // Image 3 and 4
 	updateTweets();// image 2 twittz
 
 }
-
 
 /*********************/
 /* Scaling functions */
@@ -153,25 +146,22 @@ function priceChangeColor(number){
 	var scale = d3.scale.linear().domain([-0.3 , 0.3]).range([0, 20]);
 	//var  value = Math.round(number * 100);
 
-if (number < 0){
-	var redValue = 255;
-	var blueValue = Math.round(20 - scale(number));
-	var greenValue = Math.round(20 - scale(number));
-}else if(number > 0){
-	var redValue = Math.round(20 - scale(number));
-	var blueValue = Math.round(20 - scale(number));
-	var greenValue = 255;
+	if (number < 0){
+		var redValue = 255;
+		var blueValue = Math.round(20 - scale(number));
+		var greenValue = Math.round(20 - scale(number));
+	}else if(number > 0){
+		var redValue = Math.round(20 - scale(number));
+		var blueValue = Math.round(20 - scale(number));
+		var greenValue = 255;
 
-}else{
-	var redValue = 255;
-	var blueValue = 0;
-	var greenValue = 255; 
+	}else{
+		var redValue = 255;
+		var blueValue = 0;
+		var greenValue = 255; 
 
-}
-
-
+	}
 	return rgbString(redValue, greenValue, blueValue);
-
 }
 
 function volumeChangeColor(number){
@@ -179,28 +169,28 @@ function volumeChangeColor(number){
 	var  value = Math.round(number);
 
 	if (number > 0){
-	var redValue = 255;
-	var blueValue = Math.round(20 - scale(value));
-	var greenValue = Math.round(20 - scale(value));
-}else if(number < 0){
-	var redValue = Math.round(20 - scale(value));
-	var blueValue = 255; 
-	var greenValue = Math.round(20 - scale(value));
+		var redValue = 255;
+		var blueValue = Math.round(20 - scale(value));
+		var greenValue = Math.round(20 - scale(value));
+	}else if(number < 0){
+		var redValue = Math.round(20 - scale(value));
+		var blueValue = 255; 
+		var greenValue = Math.round(20 - scale(value));
 
-}else{
-	var redValue =  255;
-	var blueValue = 255;
-	var greenValue = 255; 
-
-}
+	}else{
+		var redValue =  255;
+		var blueValue = 255;
+		var greenValue = 255; 
+	}
 
 	return rgbString(redValue, greenValue, blueValue);
 
 }
+
 function iconColor(string) {
 	var clear = "#189DFB"; 
 	var overcast = "C0C0C0";
-	var snow = #FFFFFF;	
+	var snow = #FFFFFF;
 
 	if (icon = "Clear"){
 		return clear;
@@ -211,7 +201,6 @@ function iconColor(string) {
 	else if(icon = "Snow"){
 		return snow;
 	}
-	
 	else
 		return randColor();
 }
@@ -228,26 +217,25 @@ function hrPrecipColor(number) {
 	var color = rgbString(redValue, blueValue, greenValue);
 	return color;
 }
+
 /************************/
 /* BEGIN CODE THAT RUNS */
 /************************/
 
 window.onload = function() {
 	
-	updateSoundData(); // Image One: Data Source = Sound Data Server
-
-	// Image Two: Data Source = josh's shit
-
-
+	updateSoundData(); // Image One: Data Source = Sound Data Serve
 	breckWeather(); // Image Five: Data Source = WUndergroud
 	queryWeather(); // Image Six: Data Source = Weather
 	updateReddit(); // Image 3 and 4
 	updateTweets();// image 2 twittz
+	updateStockData();
+
 	// Start update timers
 	setInterval(updateTweets, 600000); // interval to update tweets from node stream
 	setInterval(queryWeather, 12000); // interval to update picture 6 weather info
 	setInterval(breckWeather, 12000); // daniel's stuff
-	setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
+	setInterval(updateSoundData, 1000); // interval to update picture 1 from SoundDB
 	setInterval(updateReddit, 6000); // interval to update picture 3 from Reddit API
 	setInterval(updateLabels, 3000);
 	setInterval(updateStockData, 3000);
@@ -371,26 +359,24 @@ function breckWeather() {
 			var string = " > Forecast in Breckenridge: " + windGustMph;
 
 			setFGColor('image6', windGustColor(windGustMph));
-			setBGColor('image6', randColor());
+			setBGColor('image6', iconColor(icon));
 			setMGColor('image6', hrPrecipColor(hrPrecip));
-			setLabelText('image6', string);
+			//setLabelText('image6', string);
 		}
 	});
 }
 
 function updateLabels() {
 	if (lastText == 0) {
-		string = " > Boulder's Temp: " + temperature + " degF";
+		setLabelText('image6', " > Boulder's Temp: " + temperature + " degF");
 		setLabelText('image5', "> Apple Stock: " +  stock_price_string);
 	} else if (lastText == 1) {
-		string = " > Wind Speed: " + windSpeed + " mph";
+		setLabelText('image6'," > Wind Speed: " + windSpeed + " mph");
 		setLabelText('image5', "> Apple Trading: " +  stock_volume_string);
 	} else {
-		string = " > Wind Direction: " + windDirString;
+		setLabelText('image6'," > Wind Direction: " + windDirString);
 	}
-
 	lastText = (lastText + 1) % 3;
-	setLabelText('image6', string);
 }
 
 function queryWeather() {
@@ -434,7 +420,7 @@ function updateTweets() {
 	    setFGColor('image2', colorTweets(delta));
 		setBGColor('image2', colorTweets2(delta));
 		setMGColor('image2', colorTweets3(delta));
-		setLabelText('image2', " > Number of Tweets about CU Boulder:"+abs(delta));
+		setLabelText('image2', " > Number of Tweets about CU Boulder:"+Math.abs(delta));
 
 
   	});
