@@ -57,9 +57,6 @@ reddit.r('Apple', function(err, data, res){
 			countMoney += 1;
 		}
 	}
-	console.log(countApple);
-	console.log(countWoz);
-	console.log(countMoney);
 
 	// Image 4 vals
 	numComments = 0;
@@ -70,14 +67,10 @@ reddit.r('Apple', function(err, data, res){
 		downs += data.data.children[i].data.downs;
 		ups += data.data.children[i].data.ups;
 	}
-	console.log(numComments);
-	console.log(downs);
-	console.log(ups);
 });
 
 stream.on('data', function(json) {
 	tweets.push(json);
-	console.log(json);
 });
 
 server.get('/', function(req, res) {
