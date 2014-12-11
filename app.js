@@ -47,7 +47,31 @@ var stream = new Stream({
 var params = {track: 'cu boulder'};
 stream.stream(params);
 
-reddit.r('Apple', function(err, data, res){
+
+
+stream.on('data', function(json) {
+	tweets.push(json);
+});
+
+server.get('/', function(req, res) {
+	res.render("index.html");
+});
+
+//Image 5 (stock)
+
+/*$.get("stocks.php",{param:value},callbackFunction);
+callbackFunction(data)
+{
+alert(data);
+} */
+
+
+server.get('/twitter', function(req, res) {
+	res.send(tweets);
+});
+
+server.get('/reddit', function(req, res){
+	reddit.r('Apple', function(err, data, res){
 	title = data.data.children[1].data.title; //outputs object representing first page of Apple subreddit
 
 	//Image 3 vals
@@ -77,29 +101,7 @@ reddit.r('Apple', function(err, data, res){
 		ups += data.data.children[i].data.ups;
 	}
 });
-
-stream.on('data', function(json) {
-	tweets.push(json);
-});
-
-server.get('/', function(req, res) {
-	res.render("index.html");
-});
-
-//Image 5 (stock)
-
-/*$.get("stocks.php",{param:value},callbackFunction);
-callbackFunction(data)
-{
-alert(data);
-} */
-
-
-server.get('/twitter', function(req, res) {
-	res.send(tweets);
-});
-
-server.get('/reddit', function(req, res){
+	
 	var reddit_data = 
 	{
 		"countApple":countApple, 

@@ -88,10 +88,10 @@ function frequency2Color(number){
 
 function windColor(number) {
 	value = Math.round(number);
-	var scale = d3.scale.linear().domain([0, 50]).range([100, 250]);
+	var scale = d3.scale.linear().domain([0, 30]).range([100, 250]);
 
-	var redValue = 100;
-	var blueValue = 100;
+	var redValue = 200;
+	var blueValue = 200;
 	var greenValue = scale(value);
 		if (greenValue > 255) greenValue = 255;
 
@@ -116,7 +116,7 @@ function tempColor(number) {
 
 function windDirectionColor(number) {
 	value = Math.round(number);
-	var scale = d3.scale.linear().domain([0, 360]).range([0, 255]);
+	var scale = d3.scale.linear().domain([0, 360]).range([150, 255]);
 
 	var redValue = 100;
 	var blueValue = 100;
@@ -167,6 +167,7 @@ function priceChangeColor(number){
 function volumeChangeColor(number){
 	var scale = d3.scale.linear().domain([- 1500 , 1500]).range([0, 40]);
 	var  value = Math.round(number);
+	console.log("volume number: " + number);
 
 	if (number > 0){
 		var redValue = 255;
@@ -273,16 +274,14 @@ function updateReddit() {
 	    .domain([0, 3])
 	    .range(["#E3037D", "blue"]);
 
+	    console.log('reddit top title: ' + reddit.title);
+
 
 		setBGColor('image3', colornumComments(reddit.numComments));
 		setMGColor('image3', colorUps(reddit.ups));
 		setFGColor('image3', colorDowns(reddit.downs));
-		setLabelText('image3', "> Score: " + reddit.numComments);
-
-		setBGColor('image4', colorCountApple(reddit.countApple));
-		setMGColor('image4', colorCountWoz(reddit.countWoz));
-		setFGColor('image4', colorCountMoney(reddit.countMoney));
-		setLabelText('image4', "> Reddit: " + reddit.title);
+		setLabelText('image3', "> Reddit Comments: " + reddit.numComments);
+		setLabelText('image4', "> Reddit Upvotes: " + reddit.ups);
 
 	});	
 } 
@@ -358,9 +357,9 @@ function breckWeather() {
 
 			var string = " > Forecast in Breckenridge: " + windGustMph;
 
-			setFGColor('image6', windGustColor(windGustMph));
-			setBGColor('image6', iconColor(icon));
-			setMGColor('image6', hrPrecipColor(hrPrecip));
+			setFGColor('image4', windGustColor(windGustMph));
+			setBGColor('image4', iconColor(icon));
+			setMGColor('image4', hrPrecipColor(hrPrecip));
 			//setLabelText('image6', string);
 		}
 	});
@@ -389,9 +388,9 @@ function queryWeather() {
 			windDirection = parsed_json['current_observation']['wind_degrees'];
 			windDirString = parsed_json['current_observation']['wind_dir'];
 
-			//setFGColor('image6', windColor(windSpeed));
-			//setBGColor('image6', tempColor(temperature));
-			//setMGColor('image6', windDirectionColor(windDirection));
+			setFGColor('image6', windColor(windSpeed));
+			setBGColor('image6', tempColor(temperature));
+			setMGColor('image6', windDirectionColor(windDirection));
 			
 		}
 	});
