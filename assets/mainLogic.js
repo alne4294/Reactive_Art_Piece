@@ -429,7 +429,7 @@ function updateTweets() {
 	    setFGColor('image2', colorTweets(delta));
 		setBGColor('image2', colorTweets2(delta));
 		setMGColor('image2', colorTweets3(delta));
-		setLabelText('image2', " > Number of Tweets about CU Boulder:"+abs(delta);
+		setLabelText('image2', " > Number of Tweets about CU Boulder:"+abs(delta));
 
 
   	});
