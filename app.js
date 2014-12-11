@@ -127,15 +127,19 @@ var connection = mysql.createConnection({
   database : 'applestock',
 });
 
-connection.connect();
+connection.connect(); 
 
 var query = connection.query('SELECT * FROM applestock', function(err, result) {
-  // Neat!
+  
+  if (result != undefined){
   price_change = result[0]["pricediff"];
   volume_change = result[0]["volumediff"];
-  res.send({price_change: price_change, volume_change: volume_change});
+}else{
+	price_change = 0;
+	volume_change = 0;
+}
+res.send({price_change: price_change, volume_change: volume_change});
 });
-
 });
 
 // Start the server
