@@ -10,10 +10,10 @@
 					font-size: 25px;
 					font-weight: bold;
 					font-family: "Courier New";
-					-ms-transform: translate(05px,15px); /* IE 9 */
-					-webkit-transform: translate(05px,15px); /* Safari and Chrome */
-					-o-transform: translate(05px,15px); /* Opera */
-					-moz-transform: translate(05px,15px); /* Firefox */
+					-ms-transform: translate(05px,28px); /* IE 9 */
+					-webkit-transform: translate(05px,28px); /* Safari and Chrome */
+					-o-transform: translate(05px,28px); /* Opera */
+					-moz-transform: translate(05px,28px); /* Firefox */
 				}
 				rect.label_background {
 					fill:   #000000;
@@ -163,6 +163,6 @@
 			</g> <!-- END BACKGROUND -->
 
 
-			<rect class="label_background" width="425.0pt" height="20.0pt" />
+			<rect class="label_background" width="440pt" height="20.0pt" />
 			<text class="label" id="labelText">Loading data...</text>
 		</svg>
