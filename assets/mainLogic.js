@@ -220,7 +220,6 @@ function hrPrecipColor(number) {
 	var greenValue = 100;
 
 	var color = rgbString(redValue, blueValue, greenValue);
-	console.log("hrPrecipColor = " + color);
 	return color;
 }
 /************************/

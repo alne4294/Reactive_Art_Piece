@@ -22,6 +22,15 @@ var title = "";
 var price_change = 0;
 var volume_change = 0;
 
+var connection = mysql.createConnection({
+  host     : '104.131.29.34',
+  user     : 'ian',
+  password : 'mypasswd',
+  database : 'applestock',
+});
+
+connection.connect();
+
 // Set up the server
 server.engine('.html', require('ejs').__express);
 server.set('views', __dirname);
@@ -114,27 +123,19 @@ server.get('/sound', function(req, res) {
 });
 
 server.get('/stocks', function(req, res) {
-var connection = mysql.createConnection({
-  host     : '104.131.29.34',
-  user     : 'ian',
-  password : 'mypasswd',
-  database : 'applestock',
-});
-
-connection.connect(); 
 
 var query = connection.query('SELECT * FROM applestock', function(err, result) {
   
-  if (result != undefined){
-  price_change = result[0]["pricediff"];
-  volume_change = result[0]["volumediff"];
-}else{
-	console.log("price data undefined");
-	price_change = 0;
-	volume_change = 0;
-}
-res.send({price_change: price_change, volume_change: volume_change});
-});
+	if (result != undefined){
+	  price_change = result[0]["pricediff"];
+	  volume_change = result[0]["volumediff"];
+	} else{
+		console.log("price data undefined");
+		price_change = 0;
+		volume_change = 0;
+	}
+	res.send({price_change: price_change, volume_change: volume_change});
+	});
 });
 
 // Start the server
