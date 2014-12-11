@@ -129,6 +129,7 @@ var query = connection.query('SELECT * FROM applestock', function(err, result) {
   price_change = result[0]["pricediff"];
   volume_change = result[0]["volumediff"];
 }else{
+	console.log("price data undefined");
 	price_change = 0;
 	volume_change = 0;
 }
