@@ -199,7 +199,7 @@ function volumeChangeColor(number){
 }
 function iconColor(string) {
 	var clear = "#189DFB"; 
-	var overcast = #C0C0C0";
+	var overcast = "C0C0C0";
 	var snow = #FFFFFF;	
 
 	if (icon = "Clear"){
