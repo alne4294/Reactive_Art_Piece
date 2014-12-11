@@ -319,7 +319,7 @@ function updateSoundData() {
 		setBGColor('image1', volumeColor(volume));
 		setMGColor('image1', frequency1Color(sum));
 		setFGColor('image1', frequency2Color(sum2));
-		setLabelText('image1', "> Volume of ATLAS: " +  Math.round(volume*100));
+		setLabelText('image1', "> Volume of ATLAS: " +  Math.round(volume) + "dB");
 
 	});
 } 
