@@ -149,6 +149,54 @@ function windGustColor(number) {
 	return color;
 }
 
+function priceChangeColor(number){
+	var scale = d3.scale.linear().domain([-0.3 , 0.3]).range([0, 20]);
+	//var  value = Math.round(number * 100);
+
+if (number < 0){
+	var redValue = 255;
+	var blueValue = Math.round(20 - scale(number));
+	var greenValue = Math.round(20 - scale(number));
+}else if(number > 0){
+	var redValue = Math.round(20 - scale(number));
+	var blueValue = Math.round(20 - scale(number));
+	var greenValue = 255;
+
+}else{
+	var redValue = 255;
+	var blueValue = 0;
+	var greenValue = 255; 
+
+}
+
+
+	return rgbString(redValue, greenValue, blueValue);
+
+}
+
+function volumeChangeColor(number){
+	var scale = d3.scale.linear().domain([- 1500 , 1500]).range([0, 40]);
+	var  value = Math.round(number);
+
+	if (number > 0){
+	var redValue = 255;
+	var blueValue = Math.round(20 - scale(value));
+	var greenValue = Math.round(20 - scale(value));
+}else if(number < 0){
+	var redValue = Math.round(20 - scale(value));
+	var blueValue = 255; 
+	var greenValue = Math.round(20 - scale(value));
+
+}else{
+	var redValue =  255;
+	var blueValue = 255;
+	var greenValue = 255; 
+
+}
+
+	return rgbString(redValue, greenValue, blueValue);
+
+}
 /*function iconColor(number) {
 	value = Math.round(number);
 	var weather_color = 
@@ -298,10 +346,12 @@ function updateStockData() {
 		}else{
 			stock_volume_string = "Steady";
 		} 
-		//setBGColor('image1', volumeColor(volume));
-		//setMGColor('image1', frequency1Color(sum));
-		//setFGColor('image1', frequency2Color(sum2));
-		//setLabelText('image1', "> Volume of ATLAS: " +  Math.round(volume*100));
+
+		setFGColor('image5', rgbString(0, 0, 0));
+		setMGColor('image5', priceChangeColor(pricediff));
+		setBGColor('image5', volumeChangeColor(volumediff));
+
+
 
 	});
 } 
@@ -317,9 +367,9 @@ function breckWeather() {
 
 			var string = " > Forecast in Breckenridge: " + windGustMph;
 
-			setFGColor('image5', windGustColor(windGustMph));
-			setBGColor('image5', randColor());
-			setMGColor('image5', hrPrecipColor(hrPrecip));
+			//setFGColor('image5', windGustColor(windGustMph));
+			//setBGColor('image5', randColor());
+			//setMGColor('image5', hrPrecipColor(hrPrecip));
 			//setLabelText('image5', string);
 		}
 	});
