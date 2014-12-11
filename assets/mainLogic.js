@@ -199,8 +199,8 @@ function volumeChangeColor(number){
 }
 function iconColor(string) {
 	var clear = "#189DFB"; 
-	var overcast = #C0C0C0";
-	var snow = #FFFFFF;	
+	var overcast = "#C0C0C0";
+	var snow = "#FFFFFF";	
 
 	if (icon = "Clear"){
 		return clear;
@@ -234,22 +234,20 @@ function hrPrecipColor(number) {
 
 window.onload = function() {
 	
-	updateSoundData(); // Image One: Data Source = Sound Data Server
-
-	// Image Two: Data Source = josh's shit
-
-
+	updateSoundData(); // Image One: Data Source = Sound Data Serve
 	breckWeather(); // Image Five: Data Source = WUndergroud
 	queryWeather(); // Image Six: Data Source = Weather
 	updateReddit(); // Image 3 and 4
 	updateTweets();// image 2 twittz
+	updateStockData();
+	
 	// Start update timers
 	setInterval(updateTweets, 600000); // interval to update tweets from node stream
 	setInterval(queryWeather, 12000); // interval to update picture 6 weather info
 	setInterval(breckWeather, 12000); // daniel's stuff
 	setInterval(updateSoundData, 6000); // interval to update picture 1 from SoundDB
 	setInterval(updateReddit, 6000); // interval to update picture 3 from Reddit API
-	setInterval(updateLabels, 3000);
+	//setInterval(updateLabels, 3000);
 	setInterval(updateStockData, 3000);
 }
 

@@ -1,0 +1,9 @@
+Image 6
+
+This image reflects the weather of Boulder.
+Data about the current temperature and wind are brought in from online sources.
+This data is then converted into colors that represent it.
+
+The foreground's color represents the speed of the wind-- faster wind, brighter color.
+The background color scales with Boulder's current temperature. More blue colors mean that it's colder, while warmer temperatures turn the picture red.
+The rest of the image changes its color based on the direction of the wind.
